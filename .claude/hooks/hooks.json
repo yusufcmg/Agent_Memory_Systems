@@ -1,0 +1,24 @@
+{
+  "hooks": [
+    {
+      "event": "PostToolUse",
+      "matcher": "tool_name in [\"Write\", \"Edit\"] && !(tool_input.file_path matches \"^\\.claude/\")",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node -e \"const f='.claude/memory-bank/state/tasks.md'; const fs=require('fs'); if(!fs.existsSync(f)){process.exit(0);} const t=fs.readFileSync(f,'utf8'); const today=new Date().toISOString().slice(0,10); if(!t.includes(today)){console.error('[memory-bank] Source files were modified — remember to update .claude/memory-bank after this task');}\""
+        }
+      ]
+    },
+    {
+      "event": "Stop",
+      "matcher": "",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node -e \"const fs=require('fs'); const f='.claude/memory-bank/state/tasks.md'; if(!fs.existsSync(f)){process.exit(0);} const t=fs.readFileSync(f,'utf8'); const today=new Date().toISOString().slice(0,10); const updated=t.includes(today); if(!updated){console.error('[memory-bank] tasks.md was NOT updated today. Run /sync-memory to check for drift.');} else {console.log('[memory-bank] tasks.md updated today.');}\""
+        }
+      ]
+    }
+  ]
+}

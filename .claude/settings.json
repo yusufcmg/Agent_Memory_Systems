@@ -1,0 +1,23 @@
+{
+  "_comments": {
+    "MAX_THINKING_TOKENS": "Caps internal reasoning to 8K tokens. Lower = cheaper, higher = better at complex tasks. See docs/settings-guide.md",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "Auto-compacts context at 50% fullness. Prevents 64K token errors with cheap models. See docs/settings-guide.md",
+    "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "Disables background model calls that consume tokens silently. Set to 0 to re-enable.",
+    "permissions": "Full access granted. Agents can read, write, and run any command. Review before use on sensitive repos."
+  },
+  "model": "sonnet",
+  "env": {
+    "MAX_THINKING_TOKENS": "8000",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "50",
+    "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Write(**)",
+      "Bash(*)"
+    ],
+    "deny": []
+  },
+  "enabledMcpServers": []
+}

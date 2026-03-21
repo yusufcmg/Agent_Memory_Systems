@@ -1,0 +1,30 @@
+# Claude Code worktrees — can be as large as your project, don't commit
+.claude/worktrees/
+
+# Personal Claude settings — not for team sharing
+.claude/settings.local.json
+CLAUDE.local.md
+
+# Environment files — NEVER commit real secrets
+.env
+.env.local
+.env.production
+.env.staging
+.env.test
+
+# Claude Code Router — contains API keys
+.claude-code-router/config.json
+!.claude-code-router/config.example.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+
+# Build outputs
+dist/
+build/
+.next/
+out/
