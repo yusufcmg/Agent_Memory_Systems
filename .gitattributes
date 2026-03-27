@@ -1,0 +1,6 @@
+# This is a .gitattributes file to manage language statistics on GitHub
+
+# Mark setup and installation files as vendored
+/setup/* linguist-vendored
+/installation/* linguist-vendored
+/examples/* linguist-vendored
