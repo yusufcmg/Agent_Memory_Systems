@@ -1,20 +1,20 @@
-# .gitattributes file for vendoring rules
-
-# Exclude specific files and directories from language statistics
-install.sh linguist-objective-c=false
-*.sh linguist-objective-c=false
-*.py linguist-objective-c=false
-*.js linguist-objective-c=false
-*.ts linguist-objective-c=false
-*.tsx linguist-objective-c=false
-*.jsx linguist-objective-c=false
-*.json linguist-objective-c=false
-
-# Mark certain directories to exclude from language statistics
-.examples linguist-language=none
-.scripts linguist-language=none
-.claude linguist-language=none
-.claude-code-router linguist-language=none
-
-# Mark all .md files as documentation
-*.md linguist-documentation
+*.py linguist-vendored
+*.js linguist-vendored
+*.java linguist-vendored
+*.cpp linguist-vendored
+*.c linguist-vendored
+*.go linguist-vendored
+*.rb linguist-vendored
+*.php linguist-vendored
+*.html linguist-vendored
+*.css linguist-vendored
+*.ts linguist-vendored
+*.swift linguist-vendored
+*.vb linguist-vendored
+*.pl linguist-vendored
+*.r linguist-vendored
+*.sh linguist-vendored
+*.sql linguist-vendored
+*.xml linguist-vendored
+*.json linguist-vendored
+*.md linguist-language=Markdown
