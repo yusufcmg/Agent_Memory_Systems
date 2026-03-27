@@ -1,24 +1,20 @@
-# This repository is a configuration and architecture kit, not a traditional application
-# The following files are setup/utility code and should not be counted in language statistics
+# Repository Language Statistics Override
+# This is a Markdown/configuration-based kit, not a traditional application
 
-# Installation and setup scripts
-install.sh linguist-vendored
+# Mark ALL file types as vendored to exclude from language statistics
 *.sh linguist-vendored
-
-# Configuration directories and files
-.claude-code-router/ linguist-vendored
-.claude/ linguist-vendored
-
-# Example and utility code (not core functionality)
-examples/ linguist-vendored
 *.py linguist-vendored
 *.js linguist-vendored
+*.ts linguist-vendored
+*.tsx linguist-vendored
+*.jsx linguist-vendored
 *.json linguist-vendored
 
-# Documentation files
-*.md linguist-documentation
-README.md linguist-documentation
+# Mark directories as vendored
+.claude/ linguist-vendored
+.claude-code-router/ linguist-vendored
+examples/ linguist-vendored
+scripts/ linguist-vendored
 
-# Git and config files
-.gitignore linguist-vendored
-.gitattributes linguist-vendored
+# Mark documentation
+*.md linguist-documentation
