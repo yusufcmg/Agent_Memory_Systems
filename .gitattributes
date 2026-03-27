@@ -1,6 +1,24 @@
-# This is a .gitattributes file to manage language statistics on GitHub
+# This repository is a configuration and architecture kit, not a traditional application
+# The following files are setup/utility code and should not be counted in language statistics
 
-# Mark setup and installation files as vendored
-/setup/* linguist-vendored
-/installation/* linguist-vendored
-/examples/* linguist-vendored
+# Installation and setup scripts
+install.sh linguist-vendored
+*.sh linguist-vendored
+
+# Configuration directories and files
+.claude-code-router/ linguist-vendored
+.claude/ linguist-vendored
+
+# Example and utility code (not core functionality)
+examples/ linguist-vendored
+*.py linguist-vendored
+*.js linguist-vendored
+*.json linguist-vendored
+
+# Documentation files
+*.md linguist-documentation
+README.md linguist-documentation
+
+# Git and config files
+.gitignore linguist-vendored
+.gitattributes linguist-vendored
