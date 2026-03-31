@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: inventory-demand-planning
 description: >
   Codified expertise for demand forecasting, safety stock optimization,

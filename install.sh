@@ -87,6 +87,7 @@ if ! $UPDATE_MODE; then
     ENTRIES=(
       ".claude/worktrees/"
       ".claude/settings.local.json"
+      ".claude/active-skills.txt"
       "CLAUDE.local.md"
       ".claude-code-router/config.json"
     )
@@ -102,7 +103,7 @@ if ! $UPDATE_MODE; then
 fi
 
 # ── 5. Install .claude/ directory ────────────────────────────────
-mkdir -p .claude/{agents,commands,hooks,skills,memory-bank}
+mkdir -p .claude/{agents,commands,hooks,skills,scripts,memory-bank}
 
 # Count actual files for accurate log messages
 AGENT_COUNT=$(find "$SCRIPT_DIR/.claude/agents" -name '*.md' 2>/dev/null | wc -l)
@@ -117,6 +118,8 @@ if $UPDATE_MODE; then
   find "$SCRIPT_DIR/.claude/commands" -name '*.md' -exec cp -f {} .claude/commands/ \;
   log "Commands updated ($CMD_COUNT)"
   cp -f "$SCRIPT_DIR"/.claude/hooks/hooks.json .claude/hooks/ && log "Hooks updated"
+  cp -f "$SCRIPT_DIR"/.claude/scripts/configure-skills.sh .claude/scripts/ 2>/dev/null
+  log "Scripts updated"
   for skill_dir in "$SCRIPT_DIR"/.claude/skills/*/; do
     [ -d "$skill_dir" ] || continue
     skill_name=$(basename "$skill_dir")
@@ -124,12 +127,25 @@ if $UPDATE_MODE; then
     cp -f "$skill_dir/SKILL.md" ".claude/skills/$skill_name/" 2>/dev/null
   done
   log "Skills updated ($SKILL_COUNT)"
+  # Restore skill configuration from previous /init
+  if [ -f ".claude/active-skills.txt" ]; then
+    SAVED_KEYWORDS=$(tr '\n' ' ' < .claude/active-skills.txt | xargs)
+    info "Restoring skill configuration: $SAVED_KEYWORDS"
+    # shellcheck disable=SC2086
+    bash .claude/scripts/configure-skills.sh $SAVED_KEYWORDS
+  else
+    info "No active-skills.txt found — disabling all skills (run /init to configure)"
+    bash .claude/scripts/configure-skills.sh
+  fi
 else
   # Fresh install: use -n to not overwrite existing
   cp -rn "$SCRIPT_DIR/.claude/agents/".    .claude/agents/   2>/dev/null; log "Agents installed ($AGENT_COUNT)"
   cp -rn "$SCRIPT_DIR/.claude/commands/".  .claude/commands/ 2>/dev/null; log "Commands installed ($CMD_COUNT)"
   cp -rn "$SCRIPT_DIR/.claude/hooks/".     .claude/hooks/    2>/dev/null; log "Hooks installed"
+  cp -rn "$SCRIPT_DIR/.claude/scripts/".   .claude/scripts/  2>/dev/null; log "Scripts installed"
   cp -rn "$SCRIPT_DIR/.claude/skills/".    .claude/skills/   2>/dev/null; log "Skills installed ($SKILL_COUNT)"
+  # Disable all skills by default — /init will enable the right ones
+  bash .claude/scripts/configure-skills.sh
 fi
 
 # settings.json — never overwrite (user may have customized)

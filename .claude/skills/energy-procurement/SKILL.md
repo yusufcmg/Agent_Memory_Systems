@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: energy-procurement
 description: >
   Codified expertise for electricity and gas procurement, tariff optimization,

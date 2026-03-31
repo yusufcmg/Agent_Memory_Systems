@@ -3,7 +3,7 @@
 
 ## Project Memory
 Full context: `.claude/memory-bank/`
-Skills load on-demand — zero token cost until triggered.
+Skills: auto-configured by `/init` — only stack-relevant skills enabled. Disabled skills cost zero tokens; enabled skills inject description only until invoked.
 
 ## Agent Roster
 | Invoke with...              | Agent        | Model   |

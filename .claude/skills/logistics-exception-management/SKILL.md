@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: logistics-exception-management
 description: >
   Codified expertise for handling freight exceptions, shipment delays,

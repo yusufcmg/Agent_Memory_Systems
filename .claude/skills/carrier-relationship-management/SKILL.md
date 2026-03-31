@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: carrier-relationship-management
 description: >
   Codified expertise for managing carrier portfolios, negotiating freight rates,

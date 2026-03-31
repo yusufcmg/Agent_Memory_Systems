@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: kotlin-ktor-patterns
 description: Ktor server patterns including routing DSL, plugins, authentication, Koin DI, kotlinx.serialization, WebSockets, and testApplication testing.
 origin: ECC

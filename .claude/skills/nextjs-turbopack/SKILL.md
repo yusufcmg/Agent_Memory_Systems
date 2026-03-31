@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: nextjs-turbopack
 description: Next.js 16+ and Turbopack — incremental bundling, FS caching, dev speed, and when to use Turbopack vs webpack.
 origin: ECC

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: production-scheduling
 description: >
   Codified expertise for production scheduling, job sequencing, line balancing,

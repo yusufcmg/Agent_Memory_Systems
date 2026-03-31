@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: rust-patterns
 description: Idiomatic Rust patterns, ownership, error handling, traits, concurrency, and best practices for building safe, performant applications.
 origin: ECC

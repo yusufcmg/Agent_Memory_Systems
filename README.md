@@ -17,7 +17,7 @@ This repository solves the two biggest problems in standard Claude Code usage:
 ## What's Included?
 
 - **37 Expert Agents:** Frontend, Backend, Database, Security, DevOps, Java/Go/Rust/Python reviewers, TDD Guide, Architect...
-- **114 Custom Skills:** TDD loops, E2E test generation, Django/Laravel patterns, Architecture reviews, Deep Research, and more.
+- **114 Custom Skills:** TDD loops, E2E test generation, Django/Laravel patterns, Architecture reviews, Deep Research, and more. Skills are **auto-configured during `/init`** — only skills relevant to your stack are loaded, keeping token overhead minimal. Fresh install starts with **14 universal skills** (always on); `/init` enables ~20–25 total based on your stack (45 stack keywords, 84 of 114 skills mapped). Disabled skills cost **zero tokens** — they are fully excluded from the context window via `disable-model-invocation: true` in their frontmatter.
 - **62 Slash Commands:** `/init`, `/tdd`, `/code-review`, `/learn`, `/new-adr`, language-specific build/test/review commands.
 - **Persistent Memory (Memory-Bank):** All architecture decisions (ADR) and tasks are stored under `.claude/memory-bank/`.
 - **Self-Learning (/learn):** Extract patterns from a successful session to create a new reusable skill.
@@ -144,7 +144,7 @@ claude
 > /init
 ```
 
-The onboarding agent will ask questions about your project (language, framework, database, etc.). Your answers will fill `.claude/memory-bank/` with a permanent, project-specific constitution. You only need to do this **once per project**.
+The onboarding agent will ask questions about your project (language, framework, database, etc.). Your answers will fill `.claude/memory-bank/` with a permanent, project-specific constitution. It also **automatically enables only the skills relevant to your stack** — disabling the other 100+ to keep context window overhead low. You only need to do this **once per project**.
 
 ---
 
@@ -200,6 +200,43 @@ claude
 
 ---
 
+## Updating the System
+
+To pull in the latest agents, skills, and commands **without touching your memory-bank**:
+
+```bash
+bash install.sh --update
+```
+
+Update mode:
+- Overwrites `.claude/agents/`, `.claude/commands/`, `.claude/skills/`, `.claude/scripts/` from source
+- Preserves `.claude/memory-bank/` (your project context is never touched)
+- Reads `.claude/active-skills.txt` (saved by `/init`) and **automatically re-enables your previous skill set**
+- If `active-skills.txt` is missing, all skills are disabled and a prompt to run `/init` is shown
+
+---
+
+## Skill Configuration
+
+Skills are managed by `.claude/scripts/configure-skills.sh`. You normally never call it directly — it runs automatically during `install.sh` and after `/init`. But you can run it manually:
+
+```bash
+# Re-configure skills after changing your stack
+bash .claude/scripts/configure-skills.sh react typescript postgresql docker
+
+# Reset to universal-only (disable all stack skills)
+bash .claude/scripts/configure-skills.sh
+```
+
+**How it works:**
+1. Disables ALL 114 skills (inserts `disable-model-invocation: true` into frontmatter)
+2. Re-enables 14 universal skills (always on: TDD, security, memory, research, etc.)
+3. Re-enables keyword-matched skills for your stack (45 keywords → 84 skills covered)
+
+**Supported keywords:** `python`, `django`, `fastapi`, `flask`, `react`, `nextjs`, `vue`, `svelte`, `typescript`, `postgresql`, `mysql`, `mongodb`, `sqlite`, `golang`/`go`, `rust`, `kotlin`, `ktor`, `android`, `java`, `springboot`, `laravel`, `php`, `perl`, `swift`/`swiftui`/`ios`, `cpp`, `docker`, `node`, `express`, `vercel`, `aws`, `railway`, `bun`, `mcp`, `ai`, `llm`, `agents`, `exa`, `scraping`, `clickhouse`, `compose`
+
+---
+
 ## Slash Commands
 
 | Command | What it does |
@@ -236,7 +273,7 @@ claude
 | npm permission errors | Use `sudo npm install -g ...` on Linux/Mac, or fix npm permissions: [npm docs](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally). |
 | `config.json` not found | Run `bash install.sh` — it creates `~/.claude-code-router/config.json` from the example template. |
 | Model errors / "model not found" | Ensure you use **OpenRouter model IDs** (e.g. `deepseek/deepseek-chat`), not Claude Code aliases (e.g. `claude-sonnet-4-6`). |
-| 64K token context error | Switch to a model with a larger context window (e.g. DeepSeek Chat has 128K). Check your `Router` config. |
+| 64K token context error | First ensure `/init` has been run — all 114 skills inject descriptions when enabled. After `/init`, only ~20-25 skills are active. If still hitting limits, run `bash .claude/scripts/configure-skills.sh` with fewer keywords. |
 | Tool loop / agent stuck | Never use `ccr code` in interactive mode. Always use `ccr code -p "..."` with a specific task. |
 | Config changes not applied | Run `ccr restart` after editing `~/.claude-code-router/config.json`. |
 | Windows issues | Use WSL (Windows Subsystem for Linux). Native PowerShell has limited compatibility with Claude Code. |

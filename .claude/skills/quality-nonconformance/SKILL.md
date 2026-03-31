@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: quality-nonconformance
 description: >
   Codified expertise for quality control, non-conformance investigation, root

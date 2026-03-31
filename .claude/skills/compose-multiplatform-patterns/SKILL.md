@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: compose-multiplatform-patterns
 description: Compose Multiplatform and Jetpack Compose patterns for KMP projects — state management, navigation, theming, performance, and platform-specific UI.
 origin: ECC

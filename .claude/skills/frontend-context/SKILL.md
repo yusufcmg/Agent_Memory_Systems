@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: frontend-context
 description: >
   Deep frontend domain knowledge for this project. Activate when working on

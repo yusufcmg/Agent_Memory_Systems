@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: visa-doc-translate
 description: Translate visa application documents (images) to English and create a bilingual PDF with original and translation
 ---

@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: returns-reverse-logistics
 description: >
   Codified expertise for returns authorization, receipt and inspection,

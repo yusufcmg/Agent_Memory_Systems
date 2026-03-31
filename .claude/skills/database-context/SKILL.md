@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: database-context
 description: >
   Database schema, migration history, and query patterns. Activate for schema

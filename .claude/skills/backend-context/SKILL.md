@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: backend-context
 description: >
   Deep backend domain knowledge. Activate for API development, service layer,

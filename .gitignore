@@ -3,6 +3,7 @@
 
 # Personal Claude settings — not for team sharing
 .claude/settings.local.json
+.claude/active-skills.txt
 CLAUDE.local.md
 
 # Environment files — NEVER commit real secrets

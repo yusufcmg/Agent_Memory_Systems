@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: continuous-agent-loop
 description: Patterns for continuous autonomous agent loops with quality gates, evals, and recovery controls.
 origin: ECC

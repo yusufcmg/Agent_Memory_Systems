@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: devops-context
 description: >
   Infrastructure and deployment patterns. Activate for Docker, CI/CD,

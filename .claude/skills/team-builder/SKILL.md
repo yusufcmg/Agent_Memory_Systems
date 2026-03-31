@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: team-builder
 description: Interactive agent picker for composing and dispatching parallel teams
 origin: community

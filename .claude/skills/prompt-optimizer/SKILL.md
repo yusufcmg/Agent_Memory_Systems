@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: prompt-optimizer
 description: >-
   Analyze raw prompts, identify intent and gaps, match ECC components

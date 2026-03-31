@@ -1,4 +1,5 @@
 ---
+disable-model-invocation: true
 name: customs-trade-compliance
 description: >
   Codified expertise for customs documentation, tariff classification, duty
