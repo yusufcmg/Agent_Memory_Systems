@@ -112,19 +112,28 @@ SKILL_COUNT=$(find "$SCRIPT_DIR/.claude/skills" -mindepth 1 -maxdepth 1 -type d 
 
 if $UPDATE_MODE; then
   # Update mode: overwrite agents/skills/commands but preserve memory-bank
-  # Using find+exec instead of cp *.md wildcard to avoid set -e crash on empty glob
-  find "$SCRIPT_DIR/.claude/agents" -name '*.md' -exec cp -f {} .claude/agents/ \;
+  # Guard against same-file copies (when this repo IS the target project directory)
+  safe_cp() {
+    local src="$1" dst="$2"
+    [ "$(realpath "$src" 2>/dev/null)" = "$(realpath "$dst" 2>/dev/null)" ] && return 0
+    cp -f "$src" "$dst"
+  }
+  while IFS= read -r src; do
+    safe_cp "$src" ".claude/agents/$(basename "$src")"
+  done < <(find "$SCRIPT_DIR/.claude/agents" -name '*.md')
   log "Agents updated ($AGENT_COUNT)"
-  find "$SCRIPT_DIR/.claude/commands" -name '*.md' -exec cp -f {} .claude/commands/ \;
+  while IFS= read -r src; do
+    safe_cp "$src" ".claude/commands/$(basename "$src")"
+  done < <(find "$SCRIPT_DIR/.claude/commands" -name '*.md')
   log "Commands updated ($CMD_COUNT)"
-  cp -f "$SCRIPT_DIR"/.claude/hooks/hooks.json .claude/hooks/ && log "Hooks updated"
-  cp -f "$SCRIPT_DIR"/.claude/scripts/configure-skills.sh .claude/scripts/ 2>/dev/null
+  safe_cp "$SCRIPT_DIR/.claude/hooks/hooks.json" ".claude/hooks/hooks.json" && log "Hooks updated"
+  safe_cp "$SCRIPT_DIR/.claude/scripts/configure-skills.sh" ".claude/scripts/configure-skills.sh"
   log "Scripts updated"
   for skill_dir in "$SCRIPT_DIR"/.claude/skills/*/; do
     [ -d "$skill_dir" ] || continue
     skill_name=$(basename "$skill_dir")
     mkdir -p ".claude/skills/$skill_name"
-    cp -f "$skill_dir/SKILL.md" ".claude/skills/$skill_name/" 2>/dev/null
+    safe_cp "$skill_dir/SKILL.md" ".claude/skills/$skill_name/SKILL.md" || true
   done
   log "Skills updated ($SKILL_COUNT)"
   # Restore skill configuration from previous /init
