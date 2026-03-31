@@ -14,8 +14,12 @@
 
 set -e
 
-SKILLS_DIR=".claude/skills"
-ACTIVE_FILE=".claude/active-skills.txt"
+# Determine project root from script location (2 levels up: .claude/scripts/ → project root)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+
+SKILLS_DIR="$PROJECT_ROOT/.claude/skills"
+ACTIVE_FILE="$PROJECT_ROOT/.claude/active-skills.txt"
 
 # ── Universal skills — always ON regardless of stack ──────────────────────────
 UNIVERSAL_SKILLS=(
