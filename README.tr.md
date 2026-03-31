@@ -18,8 +18,12 @@ Bu repo, standart Claude Code kullanımındaki en büyük iki problemi çözer:
 
 - **37 Uzman Ajan:** Frontend, Backend, Database, Security, DevOps, Java/Go/Rust/Python Reviewer, TDD Guide, Architect...
 - **114 Özel Yetenek (Skill):** TDD Döngüleri, E2E Test Yazımı, Django/Laravel Kalıpları, Mimari İnceleme, Deep Research ve daha fazlası.
+  - Yetenekler **`/init` sırasında otomatik yapılandırılır** — yalnızca projenizin stack'ine uygun olanlar aktif edilir, token yükü minimumda tutulur.
+  - Taze kurulumda **14 evrensel skill** aktiftir (her zaman açık: TDD, güvenlik, hafıza, araştırma vb.).
+  - `/init` sonrasında stack keyword'lerinize göre sadece ilgili skill'ler aktive edilir (~20–30 arası / 114 toplam).
+  - Devre dışı skill'ler **sıfır token** tüketir — frontmatter'daki `disable-model-invocation: true` sayesinde context window'a hiç girmezler.
 - **62 Slash Komutu:** `/init`, `/tdd`, `/code-review`, `/learn`, `/new-adr`, dil bazlı build/test/review komutları.
-- **Kalıcı Hafıza (Memory-Bank):** Tüm mimari kararlarınız (ADR) ve görevleriniz `.claude/memory-bank/` klasöründe tutulur.
+- **Kalıcı Hafıza (Memory-Bank):** Tüm mimari kararlarınız (ADR) ve görevleriniz `.claude/memory-bank/` klasöründe tutulur. Boş gelir — `/init` tarafından doldurulur.
 - **Kendi Kendine Öğrenme (/learn):** Başarılı bir kodlama seansını sisteme yeni bir "yetenek" olarak öğretebilirsiniz.
 
 ---
@@ -43,8 +47,8 @@ npm install -g @anthropic-ai/claude-code
 ### 3. Bu Repoyu Klonlayın ve Çalıştırın
 
 ```bash
-git clone https://github.com/yusufcmg/Agent_Memory_System.git
-cd Agent_Memory_System
+git clone https://github.com/yusufcmg/Agent_Memory_Systems.git
+cd Agent_Memory_Systems
 bash install.sh
 ```
 
@@ -136,17 +140,23 @@ ccr restart
 
 ---
 
-
 ### 🚀 Adım 3 — Projeyi Başlat
 
-Herhangi bir proje klasörüne gidin. **İlk kurulumda** `claude` komutuyla memory-bank'ı başlatın:
+Proje klasörünüze gidin. **İlk kurulumda** `claude` komutuyla memory-bank'ı başlatın:
 
 ```bash
 claude
 > /init
 ```
 
-Onboarding ajanı projeniz hakkında sorular soracak (dil, framework, veritabanı vb.). Cevaplarınız `.claude/memory-bank/` içini sizin projenize özel dolduracak. Bunu **yalnızca bir kez** yapmanız gerekir.
+Claude, projeniz hakkında birkaç bağlamsal soru soracak (dil, framework, veritabanı, deployment vb.). Cevaplarınız şunları yapacak:
+1. `.claude/memory-bank/` içini projenize özel dolduracak — kalıcı proje anayasası oluşturur.
+2. **Yalnızca stack'inize uygun skill'leri otomatik aktive edecek** — diğer 80+ skill devre dışı bırakılır, context window lean kalır.
+
+Bunu **yalnızca bir kez** yapmanız gerekir. Sonunda şunu görürsünüz:
+```
+✅ MyProject initialized! 28 skills active for your stack.
+```
 
 ---
 
@@ -187,7 +197,7 @@ Sistemi, daha önce geliştirdiğiniz herhangi bir projeye ekleyebilirsiniz:
 
 ```bash
 cd /path/to/mevcut-projeniz
-git clone https://github.com/yusufcmg/Agent_Memory_System.git /tmp/ams
+git clone https://github.com/yusufcmg/Agent_Memory_Systems.git /tmp/ams
 cp -r /tmp/ams/{.claude,.claude-code-router,CLAUDE.md,AGENTS.md,install.sh} ./
 rm -rf /tmp/ams
 bash install.sh
@@ -203,16 +213,53 @@ claude
 
 ---
 
+## Sistemi Güncelleme
+
+Agents, skill'ler ve komutları **memory-bank'a dokunmadan** güncellemek için:
+
+```bash
+bash install.sh --update
+```
+
+Güncelleme modu:
+- `.claude/agents/`, `.claude/commands/`, `.claude/skills/`, `.claude/scripts/` klasörlerini kaynaktan günceller
+- `.claude/memory-bank/` klasörüne **hiç dokunmaz** (proje bağlamınız korunur)
+- `.claude/active-skills.txt` dosyasını okuyarak önceki skill setinizi **otomatik geri yükler**
+- `active-skills.txt` yoksa tüm skill'ler devre dışı bırakılır ve `/init` çalıştırmanız istenir
+
+---
+
+## Skill Yapılandırması
+
+Skill'ler `.claude/scripts/configure-skills.sh` tarafından yönetilir. Normalde doğrudan çalıştırmanıza gerek yoktur — `bash install.sh` ve `/init` sonrasında otomatik çalışır. Ama manuel de çalıştırabilirsiniz:
+
+```bash
+# Stack değiştikten sonra skill'leri yeniden yapılandır
+bash .claude/scripts/configure-skills.sh react typescript postgresql docker
+
+# Sadece evrensel skill'lere sıfırla (stack skill'lerini devre dışı bırak)
+bash .claude/scripts/configure-skills.sh
+```
+
+**Nasıl çalışır:**
+1. Tüm 114 skill'i devre dışı bırakır (frontmatter'a `disable-model-invocation: true` ekler)
+2. 14 evrensel skill'i yeniden etkinleştirir (her zaman açık: TDD, güvenlik, hafıza, araştırma vb.)
+3. Stack'iniz için keyword'e uyan skill'leri etkinleştirir (45 keyword → 84 skill kapsanır)
+
+**Desteklenen keyword'ler:** `python`, `django`, `fastapi`, `flask`, `react`, `nextjs`, `vue`, `svelte`, `typescript`, `postgresql`, `mysql`, `mongodb`, `sqlite`, `golang`/`go`, `rust`, `kotlin`, `ktor`, `android`, `java`, `springboot`, `laravel`, `php`, `perl`, `swift`/`swiftui`/`ios`, `cpp`, `docker`, `node`, `express`, `vercel`, `aws`, `railway`, `bun`, `mcp`, `ai`, `llm`, `agents`, `exa`, `scraping`, `clickhouse`, `compose`
+
+---
+
 ## Kullanışlı Komutlar
 
 Claude/CCR sohbetindeyken kullanabileceğiniz komutlar:
 
 | Komut | Ne Yapar? |
 |-------|-----------|
-| `/init` | Proje hafızasını sıfırdan başlatır (yalnızca ilk kurulumda) |
+| `/init` | Proje hafızasını başlatır ve stack'e uygun skill'leri yapılandırır (yalnızca ilk kurulumda) |
 | `/tdd` | Test-Driven Development döngüsü başlatır |
 | `/code-review` | Tüm mimariyi güvenlik ve performansa göre tarar |
-| `/sync-memory` | Ajanların okuduğu log klasörünü temizler, token tasarrufu sağlar |
+| `/sync-memory` | Memory-bank'ı güncel kodla uzlaştırır, eski kayıtları temizler |
 | `/new-adr` | Yeni bir Mimari Karar Raporu (ADR) oluşturur |
 | `/learn` | Başarılı bir seansı yeni bir yetenek olarak sisteme ekler |
 | `/model` | Aktif modeli değiştirir |
@@ -241,10 +288,11 @@ Claude/CCR sohbetindeyken kullanabileceğiniz komutlar:
 | npm izin (permission) hataları | Linux/Mac'te `sudo npm install -g ...` kullanın veya npm izinlerini düzeltin: [npm docs](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally). |
 | `config.json` bulunamadı | `bash install.sh` çalıştırın — örnek şablondan `~/.claude-code-router/config.json` dosyasını oluşturur. |
 | Model hatası / "model not found" | **OpenRouter model ID'lerini** kullandığınızdan emin olun (ör. `deepseek/deepseek-chat`). Claude Code alias'ları (ör. `claude-sonnet-4-6`) çalışmaz. |
-| 64K token context hatası | Daha büyük context'e sahip bir modele geçin (ör. DeepSeek Chat 128K). `Router` config'inizi kontrol edin. |
+| Çok fazla skill / yüksek token kullanımı | Önce `/init` çalıştırın — 80+ alakasız skill otomatik devre dışı bırakılır. Hâlâ sorun varsa `bash .claude/scripts/configure-skills.sh` komutunu yalnızca gerçek stack keyword'lerinizle çalıştırın. |
 | Tool loop / ajan sıkıştı | `ccr code`'u asla interaktif modda kullanmayın. Her zaman `ccr code -p "..."` ile kullanın. |
 | Config değişiklikleri uygulanmıyor | `~/.claude-code-router/config.json` düzenledikten sonra `ccr restart` çalıştırın. |
 | Windows sorunları | WSL (Windows Subsystem for Linux) kullanın. Native PowerShell, Claude Code ile sınırlı uyumluluğa sahiptir. |
+| Güncelleme sonrası skill'ler sıfırlandı | `bash install.sh --update` skill'leri `.claude/active-skills.txt` dosyasından geri yükler. Dosya yoksa `/init`'i yeniden çalıştırın. |
 
 ---
 

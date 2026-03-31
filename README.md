@@ -17,9 +17,13 @@ This repository solves the two biggest problems in standard Claude Code usage:
 ## What's Included?
 
 - **37 Expert Agents:** Frontend, Backend, Database, Security, DevOps, Java/Go/Rust/Python reviewers, TDD Guide, Architect...
-- **114 Custom Skills:** TDD loops, E2E test generation, Django/Laravel patterns, Architecture reviews, Deep Research, and more. Skills are **auto-configured during `/init`** — only skills relevant to your stack are loaded, keeping token overhead minimal. Fresh install starts with **14 universal skills** (always on); `/init` enables ~20–25 total based on your stack (45 stack keywords, 84 of 114 skills mapped). Disabled skills cost **zero tokens** — they are fully excluded from the context window via `disable-model-invocation: true` in their frontmatter.
+- **114 Custom Skills:** TDD loops, E2E test generation, Django/Laravel patterns, Architecture reviews, Deep Research, and more.
+  - Skills are **auto-configured during `/init`** — only skills relevant to your stack are loaded, keeping token overhead minimal.
+  - A fresh install starts with **14 universal skills** active (always on: TDD, security, memory, research, etc.).
+  - After `/init`, Claude enables only the skills matched to your stack keywords (~20–30 total out of 114).
+  - Disabled skills cost **zero tokens** — fully excluded from the context window via `disable-model-invocation: true` in their frontmatter.
 - **62 Slash Commands:** `/init`, `/tdd`, `/code-review`, `/learn`, `/new-adr`, language-specific build/test/review commands.
-- **Persistent Memory (Memory-Bank):** All architecture decisions (ADR) and tasks are stored under `.claude/memory-bank/`.
+- **Persistent Memory (Memory-Bank):** All architecture decisions (ADR) and tasks are stored under `.claude/memory-bank/`. Ships empty — populated entirely by `/init`.
 - **Self-Learning (/learn):** Extract patterns from a successful session to create a new reusable skill.
 
 ---
@@ -41,8 +45,8 @@ npm install -g @anthropic-ai/claude-code
 ### 3. Clone and Run
 
 ```bash
-git clone https://github.com/yusufcmg/Agent_Memory_System.git
-cd Agent_Memory_System
+git clone https://github.com/yusufcmg/Agent_Memory_Systems.git
+cd Agent_Memory_Systems
 bash install.sh
 ```
 
@@ -134,17 +138,23 @@ ccr restart
 
 ---
 
-
 ### 🚀 Step 3 — Initialize the Project
 
-Go to any project folder. **On first setup**, initialize the memory-bank using the `claude` command:
+Go to your project folder. **On first setup**, initialize the memory-bank using the `claude` command:
 
 ```bash
 claude
 > /init
 ```
 
-The onboarding agent will ask questions about your project (language, framework, database, etc.). Your answers will fill `.claude/memory-bank/` with a permanent, project-specific constitution. It also **automatically enables only the skills relevant to your stack** — disabling the other 100+ to keep context window overhead low. You only need to do this **once per project**.
+Claude will ask a few contextual questions about your project (language, framework, database, deployment, etc.). Your answers will:
+1. Fill `.claude/memory-bank/` with a permanent, project-specific constitution.
+2. **Automatically enable only the skills relevant to your stack** — disabling the other 80+ to keep the context window lean.
+
+You only need to do this **once per project**. The result is printed at the end:
+```
+✅ MyProject initialized! 28 skills active for your stack.
+```
 
 ---
 
@@ -184,7 +194,7 @@ You can add this system to any project you're already working on:
 
 ```bash
 cd /path/to/your-existing-project
-git clone https://github.com/yusufcmg/Agent_Memory_System.git /tmp/ams
+git clone https://github.com/yusufcmg/Agent_Memory_Systems.git /tmp/ams
 cp -r /tmp/ams/{.claude,.claude-code-router,CLAUDE.md,AGENTS.md,install.sh} ./
 rm -rf /tmp/ams
 bash install.sh
@@ -218,7 +228,7 @@ Update mode:
 
 ## Skill Configuration
 
-Skills are managed by `.claude/scripts/configure-skills.sh`. You normally never call it directly — it runs automatically during `install.sh` and after `/init`. But you can run it manually:
+Skills are managed by `.claude/scripts/configure-skills.sh`. You normally never call it directly — it runs automatically during `bash install.sh` and after `/init`. But you can run it manually:
 
 ```bash
 # Re-configure skills after changing your stack
@@ -241,10 +251,10 @@ bash .claude/scripts/configure-skills.sh
 
 | Command | What it does |
 |---------|-------------|
-| `/init` | Initialize project memory (first time only per project) |
+| `/init` | Initialize project memory and configure stack-relevant skills (first time only per project) |
 | `/tdd` | Start a Test-Driven Development loop |
 | `/code-review` | Scan the entire codebase for security and performance issues |
-| `/sync-memory` | Prune agent log directories to save tokens |
+| `/sync-memory` | Reconcile memory-bank with current code, prune stale entries |
 | `/new-adr` | Create a new Architecture Decision Record |
 | `/learn` | Extract patterns from a session to create a new skill |
 | `/model` | Switch the active model |
@@ -273,10 +283,11 @@ bash .claude/scripts/configure-skills.sh
 | npm permission errors | Use `sudo npm install -g ...` on Linux/Mac, or fix npm permissions: [npm docs](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally). |
 | `config.json` not found | Run `bash install.sh` — it creates `~/.claude-code-router/config.json` from the example template. |
 | Model errors / "model not found" | Ensure you use **OpenRouter model IDs** (e.g. `deepseek/deepseek-chat`), not Claude Code aliases (e.g. `claude-sonnet-4-6`). |
-| 64K token context error | First ensure `/init` has been run — all 114 skills inject descriptions when enabled. After `/init`, only ~20-25 skills are active. If still hitting limits, run `bash .claude/scripts/configure-skills.sh` with fewer keywords. |
+| Too many skills / high token usage | Run `/init` first — it disables 80+ irrelevant skills automatically. If still hitting limits, run `bash .claude/scripts/configure-skills.sh` with only your actual stack keywords. |
 | Tool loop / agent stuck | Never use `ccr code` in interactive mode. Always use `ccr code -p "..."` with a specific task. |
 | Config changes not applied | Run `ccr restart` after editing `~/.claude-code-router/config.json`. |
 | Windows issues | Use WSL (Windows Subsystem for Linux). Native PowerShell has limited compatibility with Claude Code. |
+| Skills reset after update | `bash install.sh --update` restores your skills from `.claude/active-skills.txt`. If missing, re-run `/init`. |
 
 ---
 
