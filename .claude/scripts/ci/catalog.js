@@ -14,9 +14,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const ROOT = path.join(__dirname, '../..');
-const README_PATH = path.join(ROOT, 'README.md');
-const AGENTS_PATH = path.join(ROOT, 'AGENTS.md');
+const ROOT = path.join(__dirname, '../..'); // .claude/ — agents, commands, skills live here
+const PROJECT_ROOT = path.join(__dirname, '../../..'); // repo root — README.md / AGENTS.md live here
+const README_PATH = path.join(PROJECT_ROOT, 'README.md');
+const AGENTS_PATH = path.join(PROJECT_ROOT, 'AGENTS.md');
 
 const OUTPUT_MODE = process.argv.includes('--md')
   ? 'md'

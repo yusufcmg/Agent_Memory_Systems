@@ -1,5 +1,7 @@
 # Workflow - Multi-Model Collaborative Development
 
+> ⚠️ **External infrastructure required**: This command needs `~/.claude/bin/codeagent-wrapper` and `~/.claude/.ccg/prompts/` from the CCG project. Those components are **not included** in this repository and must be installed separately. Without them this command will fail immediately.
+
 Multi-model collaborative development workflow (Research → Ideation → Plan → Execute → Optimize → Review), with intelligent routing: Frontend → Gemini, Backend → Codex.
 
 Structured development workflow with quality gates, MCP services, and multi-model collaboration.

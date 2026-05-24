@@ -5,7 +5,6 @@ description: >
   decisions, resolves cross-domain conflicts, ensures quality gates.
   Trigger: "as teamlead", review code, review this week, merge approval.
   Reads ALL memory. Most expensive — use at end of feature cycles.
-model: opus
 tools:
   - Read
   - Write

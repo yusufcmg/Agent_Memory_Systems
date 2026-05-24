@@ -16,11 +16,70 @@ This repository solves the two biggest problems in standard Claude Code usage:
 
 ## What's Included?
 
-- **37 Expert Agents:** Frontend, Backend, Database, Security, DevOps, Java/Go/Rust/Python reviewers, TDD Guide, Architect...
-- **114 Custom Skills:** TDD loops, E2E test generation, Django/Laravel patterns, Architecture reviews, Deep Research, and more.
+This kit gives you access to 45 agents, 121 skills, and 62 commands — all installed under `.claude/` as plain markdown files.
+
+| Category | Count |
+|----------|------:|
+| Agents | ✅ 45 agents |
+| Skills | ✅ 121 skills |
+| Commands | ✅ 62 commands |
+
+- **45 Expert Agents:**
+
+  | Invoke with | Agent | Purpose |
+  |-------------|-------|---------|
+  | `as frontend agent` | frontend | UI components, hooks, state management, responsive design |
+  | `as backend agent` | backend | API design, services, authentication, middleware |
+  | `as database agent` | database | Schema design, migrations, query optimization |
+  | `as devops agent` | devops | Docker, CI/CD, GitHub Actions, deployment scripts |
+  | `as deployment agent` | deployment | Pre-deployment checklist, production readiness |
+  | `as performance agent` | performance | Bundle analysis, profiling, caching strategy |
+  | `as security agent` | security | OWASP Top 10, vulnerability audit (read-only) |
+  | `as architect` | architect | System design, ADR creation, architecture decisions |
+  | `as teamlead` | teamlead | Code review, merge approval, cross-domain conflicts |
+  | `as planner` | planner | Feature decomposition, task breakdown |
+  | `as tdd-guide` | tdd-guide | Test-Driven Development, write-tests-first enforcement |
+  | `as code-reviewer` | code-reviewer | Quality, security, maintainability review |
+  | `as security-reviewer` | security-reviewer | Secrets, injection, OWASP findings |
+  | `as qa frontend agent` | qa-frontend | Unit, component, and E2E tests for frontend |
+  | `as qa backend agent` | qa-backend | API contract, integration, and DB query tests |
+  | `as docs agent` | docs | README, API docs, OpenAPI specs, diagrams |
+  | `as docs-lookup` | docs-lookup | Library/framework documentation lookup |
+  | `as doc-updater` | doc-updater | Codemaps, documentation updates |
+  | `as data scientist` | data-scientist | EDA, feature engineering, model evaluation |
+  | `as ml engineer` | ml-engineer | Model training, inference pipelines, optimization |
+  | `as mlops engineer` | mlops-engineer | MLflow, experiment tracking, model registry |
+  | `as data engineer agent` | data-engineer | ETL pipelines, data warehousing, Polars/Pandas |
+  | `as rust engineer` | rust-engineer | Production Rust systems, async/Tokio, FFI |
+  | `as trading strategist` | crypto-trading-strategist | Crypto strategy design, backtesting, risk management |
+  | `as python-reviewer` | python-reviewer | PEP 8, type hints, security, Pythonic idioms |
+  | `as go-reviewer` | go-reviewer | Idiomatic Go, concurrency, error handling |
+  | `as rust-reviewer` | rust-reviewer | Ownership, lifetimes, unsafe usage |
+  | `as java-reviewer` | java-reviewer | Spring Boot, JPA patterns, security |
+  | `as kotlin-reviewer` | kotlin-reviewer | Coroutines, Compose, clean architecture |
+  | `as cpp-reviewer` | cpp-reviewer | Memory safety, modern C++ idioms, concurrency |
+  | `as polars-reviewer` | polars-reviewer | Lazy API, parallelism blockers, pandas anti-patterns |
+  | `as database-reviewer` | database-reviewer | PostgreSQL optimization, schema, Supabase |
+  | `as build-error-resolver` | build-error-resolver | TypeScript/JS build and type error fixes |
+  | `as go-build-resolver` | go-build-resolver | Go build, vet, linter error fixes |
+  | `as rust-build-resolver` | rust-build-resolver | Cargo build, borrow checker, linker errors |
+  | `as java-build-resolver` | java-build-resolver | Maven/Gradle, Spring Boot build errors |
+  | `as kotlin-build-resolver` | kotlin-build-resolver | Kotlin/Gradle build and dependency errors |
+  | `as cpp-build-resolver` | cpp-build-resolver | CMake, compilation, template errors |
+  | `as e2e-runner` | e2e-runner | Playwright E2E tests, test journeys |
+  | `as refactor-cleaner` | refactor-cleaner | Dead code removal, knip/depcheck analysis |
+  | `as onboarding` | onboarding | Project init interview, memory-bank creation |
+  | `as loop-operator` | loop-operator | Autonomous agent loops, progress monitoring |
+  | `as harness-optimizer` | harness-optimizer | Agent harness config analysis |
+  | `as chief-of-staff` | chief-of-staff | Email/Slack triage, communication workflows |
+  | `as startup launch agent` | startup-launch | Domain setup, server hardening, SSL, nginx, zero-downtime deploy |
+
+  > All agents inherit your active Claude model. Switch models anytime with `/model` inside the session or the `--model` flag on the CLI.
+
+- **121 Custom Skills:** TDD loops, E2E test generation, Django/Laravel patterns, Architecture reviews, Deep Research, Polars/Pandas/sklearn/PyTorch/MLflow/Jupyter/Crypto-Trading patterns, and more.
   - Skills are **auto-configured during `/init`** — only skills relevant to your stack are loaded, keeping token overhead minimal.
   - A fresh install starts with **14 universal skills** active (always on: TDD, security, memory, research, etc.).
-  - After `/init`, Claude enables only the skills matched to your stack keywords (~20–30 total out of 114).
+  - After `/init`, Claude enables only the skills matched to your stack keywords (~20–30 total out of 121).
   - Disabled skills cost **zero tokens** — fully excluded from the context window via `disable-model-invocation: true` in their frontmatter.
 - **62 Slash Commands:** `/init`, `/tdd`, `/code-review`, `/learn`, `/new-adr`, language-specific build/test/review commands.
 - **Persistent Memory (Memory-Bank):** All architecture decisions (ADR) and tasks are stored under `.claude/memory-bank/`. Ships empty — populated entirely by `/init`.
@@ -239,11 +298,11 @@ bash .claude/scripts/configure-skills.sh
 ```
 
 **How it works:**
-1. Disables ALL 114 skills (inserts `disable-model-invocation: true` into frontmatter)
+1. Disables ALL 121 skills (inserts `disable-model-invocation: true` into frontmatter)
 2. Re-enables 14 universal skills (always on: TDD, security, memory, research, etc.)
-3. Re-enables keyword-matched skills for your stack (45 keywords → 84 skills covered)
+3. Re-enables keyword-matched skills for your stack (57 keywords → 96 skills covered)
 
-**Supported keywords:** `python`, `django`, `fastapi`, `flask`, `react`, `nextjs`, `vue`, `svelte`, `typescript`, `postgresql`, `mysql`, `mongodb`, `sqlite`, `golang`/`go`, `rust`, `kotlin`, `ktor`, `android`, `java`, `springboot`, `laravel`, `php`, `perl`, `swift`/`swiftui`/`ios`, `cpp`, `docker`, `node`, `express`, `vercel`, `aws`, `railway`, `bun`, `mcp`, `ai`, `llm`, `agents`, `exa`, `scraping`, `clickhouse`, `compose`
+**Supported keywords:** `python`, `django`, `fastapi`, `flask`, `react`, `nextjs`, `vue`, `svelte`, `typescript`, `postgresql`, `mysql`, `mongodb`, `sqlite`, `golang`/`go`, `rust`, `kotlin`, `ktor`, `android`, `java`, `springboot`, `laravel`, `php`, `perl`, `swift`/`swiftui`/`ios`, `cpp`, `docker`, `node`, `express`, `vercel`, `aws`, `railway`, `bun`, `mcp`, `ai`, `llm`, `agents`, `exa`, `scraping`, `clickhouse`, `compose`, `polars`, `pandas`, `sklearn`/`scikit`, `pytorch`/`torch`, `mlflow`, `ml`, `datascience`, `jupyter`/`notebook`, `trading`, `crypto`, `quant`
 
 ---
 

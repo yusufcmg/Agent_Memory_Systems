@@ -5,7 +5,6 @@ description: >
   middleware, and server-side business logic.
   Trigger: "as backend agent", API/endpoint/service/auth tasks.
   Do NOT use for: UI components, DB schema changes, infrastructure.
-model: sonnet
 isolation: worktree
 tools:
   - Read

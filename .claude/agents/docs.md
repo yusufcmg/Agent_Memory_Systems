@@ -5,7 +5,6 @@ description: >
   Mermaid architecture diagrams, inline code comments.
   Trigger: "as docs agent", write documentation, update README, API spec.
   Write to docs only — never touches application logic.
-model: haiku
 tools:
   - Read
   - Write

@@ -2,7 +2,6 @@
 name: loop-operator
 description: Operate autonomous agent loops, monitor progress, and intervene safely when loops stall.
 tools: ["Read", "Grep", "Glob", "Bash", "Edit"]
-model: sonnet
 color: orange
 ---
 
@@ -34,3 +33,8 @@ Escalate when any condition is true:
 - repeated failures with identical stack traces
 - cost drift outside budget window
 - merge conflicts blocking queue advancement
+
+
+## After Every Task — MANDATORY
+1. `state/tasks.md` → mark task ✅ with today's date
+2. Blockers found → add to `state/tasks.md` under ⚠️ Blockers

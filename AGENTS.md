@@ -2,6 +2,18 @@
 <!-- Universal standard: https://agents.md — works with Cursor, Codex, Copilot, Aider, etc. -->
 <!-- Claude Code detail: CLAUDE.md + .claude/memory-bank/ -->
 
+This kit installs providing 44 specialized agents, 121+ skills, 62 commands into any project via `bash install.sh`.
+
+## Project Structure
+
+```
+.claude/
+  agents/    — 44 specialized subagents
+  skills/    — 121+ workflow skills and domain knowledge
+  commands/  — 62 slash commands
+  memory-bank/ — persistent project context (populated by /init)
+```
+
 ## Setup
 ```bash
 bash install.sh          # First time: installs Claude Code Router + memory-bank templates

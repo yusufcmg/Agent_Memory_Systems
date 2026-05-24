@@ -1,5 +1,7 @@
 # Execute - Multi-Model Collaborative Execution
 
+> ⚠️ **External infrastructure required**: This command needs `~/.claude/bin/codeagent-wrapper` and `~/.claude/.ccg/prompts/` from the CCG project. Those components are **not included** in this repository and must be installed separately. Without them this command will fail immediately.
+
 Multi-model collaborative execution - Get prototype from plan → Claude refactors and implements → Multi-model audit and delivery.
 
 $ARGUMENTS

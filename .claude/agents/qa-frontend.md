@@ -4,7 +4,6 @@ description: >
   Frontend QA engineer. Writes unit, component, and E2E tests.
   Trigger: "as qa frontend agent", write frontend tests, test coverage.
   Writes test files only — never touches implementation code.
-model: haiku
 isolation: worktree
 tools:
   - Read

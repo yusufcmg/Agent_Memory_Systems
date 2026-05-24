@@ -4,7 +4,6 @@ description: >
   Backend QA engineer. API contract tests, integration tests, DB query tests.
   Trigger: "as qa backend agent", write backend tests, API tests.
   Writes test files only — never touches implementation code.
-model: haiku
 isolation: worktree
 tools:
   - Read

@@ -6,7 +6,6 @@ description: >
   Trigger: "as deployment agent", deploy to production, pre-deployment check,
   go live, production readiness, release checklist.
   Does NOT deploy automatically — guides you through every step.
-model: sonnet
 isolation: worktree
 tools:
   - Read

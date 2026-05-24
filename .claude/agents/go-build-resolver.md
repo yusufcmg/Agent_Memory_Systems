@@ -2,7 +2,6 @@
 name: go-build-resolver
 description: Go build, vet, and compilation error resolution specialist. Fixes build errors, go vet issues, and linter warnings with minimal changes. Use when Go builds fail.
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
-model: sonnet
 ---
 
 # Go Build Error Resolver
@@ -92,3 +91,8 @@ Remaining errors: 3
 Final: `Build Status: SUCCESS/FAILED | Errors Fixed: N | Files Modified: list`
 
 For detailed Go error patterns and code examples, see `skill: golang-patterns`.
+
+
+## After Every Task — MANDATORY
+1. `state/tasks.md` → mark task ✅ with today's date; list errors fixed and files changed
+2. Build still failing → add to `state/tasks.md` under ⚠️ Blockers with the exact error message

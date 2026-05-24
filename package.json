@@ -1,0 +1,21 @@
+{
+  "name": "agent-memory-systems",
+  "version": "2.0.0",
+  "description": "Claude Code configuration kit — expert agents, skills, and persistent memory-bank",
+  "private": true,
+  "scripts": {
+    "validate:agents": "node .claude/scripts/ci/validate-agents.js",
+    "validate:hooks": "node .claude/scripts/ci/validate-hooks.js",
+    "validate:manifests": "node .claude/scripts/ci/validate-install-manifests.js",
+    "catalog": "node .claude/scripts/ci/catalog.js --text",
+    "ci": "npm run validate:agents && npm run validate:hooks && npm run validate:manifests && npm run catalog"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "sql.js": "^1.12.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}

@@ -21,6 +21,12 @@ Skills: auto-configured by `/init` — only stack-relevant skills enabled. Disab
 | "as architect"              | architect    | opus    |
 | "as planner"                | planner      | sonnet  |
 | "as deployment agent"       | deployment   | sonnet  |
+| "as data scientist"         | data-scientist | sonnet |
+| "as ml engineer"            | ml-engineer  | sonnet  |
+| "as mlops engineer"         | mlops-engineer | sonnet |
+| "as data engineer agent"    | data-engineer | sonnet  |
+| "as rust engineer"          | rust-engineer | sonnet  |
+| "as trading strategist"     | crypto-trading-strategist | opus |
 
 ## Slash Commands
 - `/init`         — Onboard new project, create memory-bank

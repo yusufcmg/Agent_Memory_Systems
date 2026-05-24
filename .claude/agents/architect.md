@@ -4,7 +4,6 @@ description: >
   Software architect. System design, technology decisions, ADR creation,
   migration planning, architecture evolution.
   Trigger: "as architect", design system, create ADR, architecture decision.
-model: opus
 isolation: worktree
 tools:
   - Read

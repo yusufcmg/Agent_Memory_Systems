@@ -5,7 +5,6 @@ description: >
   dependency vulnerabilities, secret detection.
   Trigger: "as security agent", security scan, vulnerability audit.
   Read-only — produces findings report only, does NOT modify production code.
-model: haiku
 tools:
   - Read
   - Write

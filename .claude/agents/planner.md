@@ -4,7 +4,6 @@ description: >
   Project planner and task breakdown specialist. Decomposes features into
   agent-ready tasks, assigns to right agents, estimates complexity.
   Trigger: "as planner", plan this feature, break down this task.
-model: sonnet
 tools:
   - Read
   - Write

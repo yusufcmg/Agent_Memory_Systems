@@ -1,5 +1,7 @@
 # Backend - Backend-Focused Development
 
+> ⚠️ **External infrastructure required**: This command needs `~/.claude/bin/codeagent-wrapper` and `~/.claude/.ccg/prompts/` from the CCG project. Those components are **not included** in this repository and must be installed separately. Without them this command will fail immediately.
+
 Backend-focused workflow (Research → Ideation → Plan → Execute → Optimize → Review), Codex-led.
 
 ## Usage

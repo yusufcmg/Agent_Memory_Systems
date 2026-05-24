@@ -4,7 +4,6 @@ description: >
   Performance optimization specialist. Frontend bundle analysis, backend
   profiling, DB query optimization, caching strategy.
   Trigger: "as performance agent", slow query, bundle size, performance audit.
-model: sonnet
 isolation: worktree
 tools:
   - Read

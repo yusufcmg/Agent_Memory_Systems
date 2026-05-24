@@ -2,7 +2,6 @@
 name: java-build-resolver
 description: Java/Maven/Gradle build, compilation, and dependency error resolution specialist. Fixes build errors, Java compiler errors, and Maven/Gradle issues with minimal changes. Use when Java or Spring Boot builds fail.
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
-model: sonnet
 ---
 
 # Java Build Error Resolver
@@ -151,3 +150,8 @@ Remaining errors: 1
 Final: `Build Status: SUCCESS/FAILED | Errors Fixed: N | Files Modified: list`
 
 For detailed Java and Spring Boot patterns, see `skill: springboot-patterns`.
+
+
+## After Every Task — MANDATORY
+1. `state/tasks.md` → mark task ✅ with today's date; list errors fixed and files changed
+2. Build still failing → add to `state/tasks.md` under ⚠️ Blockers with the exact error message

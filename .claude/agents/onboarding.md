@@ -4,7 +4,6 @@ description: >
   Project initialization agent. Interviews user and creates all memory-bank files.
   Run ONCE at project start via /init command.
   Trigger: /init, "initialize project", "setup memory bank", "onboard project".
-model: sonnet
 tools:
   - Read
   - Write

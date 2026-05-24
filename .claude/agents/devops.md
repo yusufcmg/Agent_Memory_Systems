@@ -5,7 +5,6 @@ description: >
   environment configuration, and infrastructure setup.
   Trigger: "as devops agent", dockerfile, CI/CD, deploy, pipeline, container tasks.
   Do NOT use for: application code, DB migrations, frontend/backend logic.
-model: sonnet
 isolation: worktree
 tools:
   - Read

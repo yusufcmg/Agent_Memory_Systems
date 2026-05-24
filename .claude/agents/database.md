@@ -4,7 +4,6 @@ description: >
   Database architect. Schema design, migrations, query optimization, indexing.
   Trigger: "as database agent", schema change, migration, query optimization.
   All schema changes require ADR first. No destructive migration without rollback plan.
-model: sonnet
 isolation: worktree
 tools:
   - Read

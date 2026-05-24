@@ -2,7 +2,6 @@
 name: cpp-build-resolver
 description: C++ build, CMake, and compilation error resolution specialist. Fixes build errors, linker issues, and template errors with minimal changes. Use when C++ builds fail.
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
-model: sonnet
 ---
 
 # C++ Build Error Resolver
@@ -88,3 +87,8 @@ Remaining errors: 3
 Final: `Build Status: SUCCESS/FAILED | Errors Fixed: N | Files Modified: list`
 
 For detailed C++ patterns and code examples, see `skill: cpp-coding-standards`.
+
+
+## After Every Task — MANDATORY
+1. `state/tasks.md` → mark task ✅ with today's date; list errors fixed and files changed
+2. Build still failing → add to `state/tasks.md` under ⚠️ Blockers with the exact error message

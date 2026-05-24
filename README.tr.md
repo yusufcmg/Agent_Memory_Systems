@@ -16,11 +16,62 @@ Bu repo, standart Claude Code kullanımındaki en büyük iki problemi çözer:
 
 ## Neler Var?
 
-- **37 Uzman Ajan:** Frontend, Backend, Database, Security, DevOps, Java/Go/Rust/Python Reviewer, TDD Guide, Architect...
-- **114 Özel Yetenek (Skill):** TDD Döngüleri, E2E Test Yazımı, Django/Laravel Kalıpları, Mimari İnceleme, Deep Research ve daha fazlası.
+- **45 Uzman Ajan:**
+
+  | Şu şekilde çağırın | Ajan | Amaç |
+  |---------------------|------|------|
+  | `as frontend agent` | frontend | UI bileşenleri, hook'lar, state yönetimi, responsive tasarım |
+  | `as backend agent` | backend | API tasarımı, servisler, kimlik doğrulama, middleware |
+  | `as database agent` | database | Şema tasarımı, migrasyon, sorgu optimizasyonu |
+  | `as devops agent` | devops | Docker, CI/CD, GitHub Actions, deployment betikleri |
+  | `as deployment agent` | deployment | Deployment öncesi kontrol listesi, prod hazırlığı |
+  | `as performance agent` | performance | Bundle analizi, profilleme, önbellekleme stratejisi |
+  | `as security agent` | security | OWASP Top 10, zafiyet taraması (salt okunur) |
+  | `as architect` | architect | Sistem tasarımı, ADR oluşturma, mimari kararlar |
+  | `as teamlead` | teamlead | Kod inceleme, merge onayı, alan arası çatışmalar |
+  | `as planner` | planner | Özellik ayrıştırma, görev planlama |
+  | `as tdd-guide` | tdd-guide | Test-Driven Development, önce-test yaklaşımı |
+  | `as code-reviewer` | code-reviewer | Kalite, güvenlik, bakım kolaylığı incelemesi |
+  | `as security-reviewer` | security-reviewer | Gizli bilgi, injection, OWASP bulguları |
+  | `as qa frontend agent` | qa-frontend | Frontend için birim, bileşen ve E2E testleri |
+  | `as qa backend agent` | qa-backend | API sözleşme, entegrasyon ve DB sorgu testleri |
+  | `as docs agent` | docs | README, API dokümantasyonu, OpenAPI şemaları |
+  | `as docs-lookup` | docs-lookup | Kütüphane/framework dokümantasyon arama |
+  | `as doc-updater` | doc-updater | Codemap ve dokümantasyon güncelleme |
+  | `as data scientist` | data-scientist | EDA, feature engineering, model değerlendirme |
+  | `as ml engineer` | ml-engineer | Model eğitimi, inference pipeline'ları, optimizasyon |
+  | `as mlops engineer` | mlops-engineer | MLflow, deney takibi, model registry |
+  | `as data engineer agent` | data-engineer | ETL pipeline'ları, veri ambarı, Polars/Pandas |
+  | `as rust engineer` | rust-engineer | Production Rust sistemleri, async/Tokio, FFI |
+  | `as trading strategist` | crypto-trading-strategist | Kripto strateji tasarımı, backtesting, risk yönetimi |
+  | `as python-reviewer` | python-reviewer | PEP 8, type hint'ler, güvenlik, Pythonik deyimler |
+  | `as go-reviewer` | go-reviewer | İdiomatic Go, eş zamanlılık, hata işleme |
+  | `as rust-reviewer` | rust-reviewer | Sahiplik, yaşam süreleri, unsafe kullanımı |
+  | `as java-reviewer` | java-reviewer | Spring Boot, JPA kalıpları, güvenlik |
+  | `as kotlin-reviewer` | kotlin-reviewer | Coroutine'ler, Compose, temiz mimari |
+  | `as cpp-reviewer` | cpp-reviewer | Bellek güvenliği, modern C++ deyimleri, eş zamanlılık |
+  | `as polars-reviewer` | polars-reviewer | Lazy API, paralelizm engelleri, pandas anti-pattern'ları |
+  | `as database-reviewer` | database-reviewer | PostgreSQL optimizasyonu, şema, Supabase |
+  | `as build-error-resolver` | build-error-resolver | TypeScript/JS build ve tip hatası düzeltmeleri |
+  | `as go-build-resolver` | go-build-resolver | Go build, vet, linter hata düzeltmeleri |
+  | `as rust-build-resolver` | rust-build-resolver | Cargo build, borrow checker, linker hataları |
+  | `as java-build-resolver` | java-build-resolver | Maven/Gradle, Spring Boot build hataları |
+  | `as kotlin-build-resolver` | kotlin-build-resolver | Kotlin/Gradle build ve bağımlılık hataları |
+  | `as cpp-build-resolver` | cpp-build-resolver | CMake, derleme, şablon hataları |
+  | `as e2e-runner` | e2e-runner | Playwright E2E testleri, test yolculukları |
+  | `as refactor-cleaner` | refactor-cleaner | Ölü kod temizleme, knip/depcheck analizi |
+  | `as onboarding` | onboarding | Proje başlatma mülakatı, memory-bank oluşturma |
+  | `as loop-operator` | loop-operator | Otonom ajan döngüleri, ilerleme izleme |
+  | `as harness-optimizer` | harness-optimizer | Ajan konfigürasyon analizi |
+  | `as chief-of-staff` | chief-of-staff | E-posta/Slack triaj, iletişim iş akışları |
+  | `as startup launch agent` | startup-launch | Domain kurulumu, sunucu güvenliği, SSL, nginx, sıfır kesintili yayın |
+
+  > Tüm ajanlar oturumunuzda aktif olan modeli miras alır. Modeli oturum içinde `/model` komutuyla veya CLI'da `--model` flag'iyle istediğiniz zaman değiştirebilirsiniz.
+
+- **121 Özel Yetenek (Skill):** TDD Döngüleri, E2E Test Yazımı, Django/Laravel Kalıpları, Mimari İnceleme, Deep Research, Polars/Pandas/sklearn/PyTorch/MLflow/Jupyter/Kripto-Trading kalıpları ve daha fazlası.
   - Yetenekler **`/init` sırasında otomatik yapılandırılır** — yalnızca projenizin stack'ine uygun olanlar aktif edilir, token yükü minimumda tutulur.
   - Taze kurulumda **14 evrensel skill** aktiftir (her zaman açık: TDD, güvenlik, hafıza, araştırma vb.).
-  - `/init` sonrasında stack keyword'lerinize göre sadece ilgili skill'ler aktive edilir (~20–30 arası / 114 toplam).
+  - `/init` sonrasında stack keyword'lerinize göre sadece ilgili skill'ler aktive edilir (~20–30 arası / 121 toplam).
   - Devre dışı skill'ler **sıfır token** tüketir — frontmatter'daki `disable-model-invocation: true` sayesinde context window'a hiç girmezler.
 - **62 Slash Komutu:** `/init`, `/tdd`, `/code-review`, `/learn`, `/new-adr`, dil bazlı build/test/review komutları.
 - **Kalıcı Hafıza (Memory-Bank):** Tüm mimari kararlarınız (ADR) ve görevleriniz `.claude/memory-bank/` klasöründe tutulur. Boş gelir — `/init` tarafından doldurulur.
@@ -242,11 +293,11 @@ bash .claude/scripts/configure-skills.sh
 ```
 
 **Nasıl çalışır:**
-1. Tüm 114 skill'i devre dışı bırakır (frontmatter'a `disable-model-invocation: true` ekler)
+1. Tüm 121 skill'i devre dışı bırakır (frontmatter'a `disable-model-invocation: true` ekler)
 2. 14 evrensel skill'i yeniden etkinleştirir (her zaman açık: TDD, güvenlik, hafıza, araştırma vb.)
-3. Stack'iniz için keyword'e uyan skill'leri etkinleştirir (45 keyword → 84 skill kapsanır)
+3. Stack'iniz için keyword'e uyan skill'leri etkinleştirir (57 keyword → 96 skill kapsanır)
 
-**Desteklenen keyword'ler:** `python`, `django`, `fastapi`, `flask`, `react`, `nextjs`, `vue`, `svelte`, `typescript`, `postgresql`, `mysql`, `mongodb`, `sqlite`, `golang`/`go`, `rust`, `kotlin`, `ktor`, `android`, `java`, `springboot`, `laravel`, `php`, `perl`, `swift`/`swiftui`/`ios`, `cpp`, `docker`, `node`, `express`, `vercel`, `aws`, `railway`, `bun`, `mcp`, `ai`, `llm`, `agents`, `exa`, `scraping`, `clickhouse`, `compose`
+**Desteklenen keyword'ler:** `python`, `django`, `fastapi`, `flask`, `react`, `nextjs`, `vue`, `svelte`, `typescript`, `postgresql`, `mysql`, `mongodb`, `sqlite`, `golang`/`go`, `rust`, `kotlin`, `ktor`, `android`, `java`, `springboot`, `laravel`, `php`, `perl`, `swift`/`swiftui`/`ios`, `cpp`, `docker`, `node`, `express`, `vercel`, `aws`, `railway`, `bun`, `mcp`, `ai`, `llm`, `agents`, `exa`, `scraping`, `clickhouse`, `compose`, `polars`, `pandas`, `sklearn`/`scikit`, `pytorch`/`torch`, `mlflow`, `ml`, `datascience`, `jupyter`/`notebook`, `trading`, `crypto`, `quant`
 
 ---
 

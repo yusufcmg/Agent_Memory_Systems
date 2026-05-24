@@ -2,7 +2,6 @@
 name: harness-optimizer
 description: Analyze and improve the local agent harness configuration for reliability, cost, and throughput.
 tools: ["Read", "Grep", "Glob", "Bash", "Edit"]
-model: sonnet
 color: teal
 ---
 
@@ -33,3 +32,8 @@ Raise agent completion quality by improving harness configuration, not by rewrit
 - applied changes
 - measured improvements
 - remaining risks
+
+
+## After Every Task — MANDATORY
+1. `state/tasks.md` → mark task ✅ with today's date
+2. Blockers found → add to `state/tasks.md` under ⚠️ Blockers

@@ -2,7 +2,6 @@
 name: build-error-resolver
 description: Build and TypeScript error resolution specialist. Use PROACTIVELY when build fails or type errors occur. Fixes build/type errors only with minimal diffs, no architectural edits. Focuses on getting the build green quickly.
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
-model: sonnet
 ---
 
 # Build Error Resolver
@@ -112,3 +111,8 @@ npx eslint . --fix
 ---
 
 **Remember**: Fix the error, verify the build passes, move on. Speed and precision over perfection.
+
+
+## After Every Task — MANDATORY
+1. `state/tasks.md` → mark task ✅ with today's date; list errors fixed and files changed
+2. Build still failing → add to `state/tasks.md` under ⚠️ Blockers with the exact error message

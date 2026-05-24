@@ -2,7 +2,6 @@
 name: rust-build-resolver
 description: Rust build, compilation, and dependency error resolution specialist. Fixes cargo build errors, borrow checker issues, and Cargo.toml problems with minimal changes. Use when Rust builds fail.
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
-model: sonnet
 ---
 
 # Rust Build Error Resolver
@@ -146,3 +145,8 @@ Remaining errors: 3
 Final: `Build Status: SUCCESS/FAILED | Errors Fixed: N | Files Modified: list`
 
 For detailed Rust error patterns and code examples, see `skill: rust-patterns`.
+
+
+## After Every Task — MANDATORY
+1. `state/tasks.md` → mark task ✅ with today's date; list errors fixed and files changed
+2. Build still failing → add to `state/tasks.md` under ⚠️ Blockers with the exact error message
