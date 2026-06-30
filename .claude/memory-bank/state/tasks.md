@@ -383,6 +383,20 @@ v1 → v2 geçiş için kullanıcıya: "Mevcut projelerinde `bash sync-to-projec
 
 ---
 
+### T-014 — Tam Sistem Denetimi (Sıfırdan Tarama) ✅ TAMAMLANDI
+**Önem:** P0
+**Süre:** 30 dk
+**Commit:** `237a65d`
+
+**Yapılan:**
+- 8 ajanın eksik `model:` alanı eklendi (tier sistemi kırıktı, hepsi session modelini miras alıyordu)
+  - T1: crypto-trading-strategist → claude-opus-4-8
+  - T3: frontend, devops, data-scientist, ml-engineer, mlops-engineer, data-engineer, rust-engineer → claude-sonnet-4-6
+- README.md (EN) sayımları düzeltildi: 45→46 ajan, 121→143 skill, 62→65 komut
+- README.tr.md sayımları düzeltildi: 125→143 skill, 64→65 komut
+
+---
+
 ### T-013 — Post-Release Bütünlük Denetimi ✅ TAMAMLANDI
 **Önem:** P0 (yanlış sayımlar kullanıcıya yanlış bilgi verir)
 **Süre:** 30 dk
