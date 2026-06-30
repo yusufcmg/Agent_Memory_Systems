@@ -311,12 +311,26 @@ bash .claude/scripts/configure-skills.sh
 | Command | What it does |
 |---------|-------------|
 | `/init` | Initialize project memory and configure stack-relevant skills (first time only per project) |
+| `/status` | Show current tasks and blockers |
 | `/tdd` | Start a Test-Driven Development loop |
 | `/code-review` | Scan the entire codebase for security and performance issues |
+| `/code-review ultra` | Multi-agent cloud code review (billed) |
+| `/sast` | Full security scan with 15 parallel SAST subagents (OWASP Top 10) |
 | `/sync-memory` | Reconcile memory-bank with current code, prune stale entries |
 | `/new-adr` | Create a new Architecture Decision Record |
+| `/incident P0` | Production P0/P1 incident triage — containment + RCA + post-mortem |
 | `/learn` | Extract patterns from a session to create a new skill |
-| `/model` | Switch the active model |
+| `/plan` | Design an implementation plan before coding |
+| `/verify` | Run full verification suite |
+| `/refactor-clean` | Dead code removal with knip/depcheck analysis |
+| `/e2e` | Run Playwright E2E tests |
+| `/go-review` / `/go-test` / `/go-build` | Go review / test / build fix |
+| `/rust-review` / `/rust-test` / `/rust-build` | Rust review / test / build fix |
+| `/python-review` | Python code review |
+| `/java-review` / `/java-build` | Java/Spring review + build fix |
+| `/kotlin-review` / `/kotlin-build` | Kotlin review + build fix |
+| `/cpp-review` / `/cpp-test` / `/cpp-build` | C++ review / test / build fix |
+| `/sync-from-template` | Push local agent/skill improvements back to AMS2 template |
 
 ---
 

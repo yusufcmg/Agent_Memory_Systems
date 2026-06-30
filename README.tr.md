@@ -309,14 +309,25 @@ Claude/CCR sohbetindeyken kullanabileceğiniz komutlar:
 | Komut | Ne Yapar? |
 |-------|-----------|
 | `/init` | Proje hafızasını başlatır ve stack'e uygun skill'leri yapılandırır (yalnızca ilk kurulumda) |
+| `/status` | Mevcut görevleri ve engelleri gösterir |
 | `/tdd` | Test-Driven Development döngüsü başlatır |
 | `/code-review` | Tüm mimariyi güvenlik ve performansa göre tarar |
+| `/code-review ultra` | Çok ajanlı bulut kod incelemesi (ücretli) |
+| `/sast` | 15 paralel SAST alt-ajanıyla tam güvenlik taraması başlatır (OWASP Top 10) |
 | `/sync-memory` | Memory-bank'ı güncel kodla uzlaştırır, eski kayıtları temizler |
 | `/new-adr` | Yeni bir Mimari Karar Raporu (ADR) oluşturur |
-| `/learn` | Başarılı bir seansı yeni bir yetenek olarak sisteme ekler |
-| `/model` | Aktif modeli değiştirir |
 | `/incident P0` | Production P0/P1 incident triajı başlatır — containment + RCA + post-mortem |
-| `/sast` | 15 paralel SAST alt-ajanıyla tam güvenlik taraması başlatır |
+| `/learn` | Başarılı bir seansı yeni bir yetenek olarak sisteme ekler |
+| `/plan` | Kodlamadan önce uygulama planı oluşturur |
+| `/verify` | Tam doğrulama paketini çalıştırır |
+| `/refactor-clean` | knip/depcheck ile ölü kod temizliği |
+| `/e2e` | Playwright E2E testlerini çalıştırır |
+| `/go-review` / `/go-test` / `/go-build` | Go inceleme / test / build düzeltme |
+| `/rust-review` / `/rust-test` / `/rust-build` | Rust inceleme / test / build düzeltme |
+| `/python-review` | Python kod incelemesi |
+| `/java-review` / `/java-build` | Java/Spring inceleme + build düzeltme |
+| `/kotlin-review` / `/kotlin-build` | Kotlin inceleme + build düzeltme |
+| `/cpp-review` / `/cpp-test` / `/cpp-build` | C++ inceleme / test / build düzeltme |
 | `/sync-from-template` | Projede değiştirdiğin agent/skill'i AMS2 şablonuna geri yansıtır |
 
 ---
