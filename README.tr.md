@@ -72,7 +72,7 @@ Bu repo, standart Claude Code kullanımındaki en büyük iki problemi çözer:
 - **125 Özel Yetenek (Skill):** TDD Döngüleri, E2E Test Yazımı, Django/Laravel Kalıpları, Mimari İnceleme, Deep Research, Polars/Pandas/sklearn/PyTorch/MLflow/Jupyter/Kripto-Trading kalıpları, production Observability (LOG+Metric+Trace), Teknik SEO + Core Web Vitals, KVKK (Türkiye veri koruma) uyumluluğu, Incident Response runbook/post-mortem ve daha fazlası.
   - Yetenekler **`/init` sırasında otomatik yapılandırılır** — yalnızca projenizin stack'ine uygun olanlar aktif edilir, token yükü minimumda tutulur.
   - Taze kurulumda **14 evrensel skill** aktiftir (her zaman açık: TDD, güvenlik, hafıza, araştırma vb.).
-  - `/init` sonrasında stack keyword'lerinize göre sadece ilgili skill'ler aktive edilir (~20–30 arası / 121 toplam).
+  - `/init` sonrasında stack keyword'lerinize göre sadece ilgili skill'ler aktive edilir (~20–30 arası / 125 toplam).
   - Devre dışı skill'ler **sıfır token** tüketir — frontmatter'daki `disable-model-invocation: true` sayesinde context window'a hiç girmezler.
 - **64 Slash Komutu:** `/init`, `/tdd`, `/code-review`, `/learn`, `/new-adr`, `/incident`, `/sync-from-template`, dil bazlı build/test/review komutları.
 - **Kalıcı Hafıza (Memory-Bank):** Tüm mimari kararlarınız (ADR) ve görevleriniz `.claude/memory-bank/` klasöründe tutulur. Boş gelir — `/init` tarafından doldurulur.
@@ -294,7 +294,7 @@ bash .claude/scripts/configure-skills.sh
 ```
 
 **Nasıl çalışır:**
-1. Tüm 121 skill'i devre dışı bırakır (frontmatter'a `disable-model-invocation: true` ekler)
+1. Tüm 125 skill'i devre dışı bırakır (frontmatter'a `disable-model-invocation: true` ekler)
 2. 14 evrensel skill'i yeniden etkinleştirir (her zaman açık: TDD, güvenlik, hafıza, araştırma vb.)
 3. Stack'iniz için keyword'e uyan skill'leri etkinleştirir (57 keyword → 96 skill kapsanır)
 
@@ -316,7 +316,7 @@ Claude/CCR sohbetindeyken kullanabileceğiniz komutlar:
 | `/learn` | Başarılı bir seansı yeni bir yetenek olarak sisteme ekler |
 | `/model` | Aktif modeli değiştirir |
 | `/incident P0` | Production P0/P1 incident triajı başlatır — containment + RCA + post-mortem |
-| `/sast` | 16 paralel SAST alt-ajanıyla tam güvenlik taraması başlatır |
+| `/sast` | 15 paralel SAST alt-ajanıyla tam güvenlik taraması başlatır |
 | `/sync-from-template` | Projede değiştirdiğin agent/skill'i AMS2 şablonuna geri yansıtır |
 
 ---
@@ -355,7 +355,7 @@ Bu kit, Türkiye'deki geliştirme ihtiyaçlarına yönelik ek içerik barındır
 | **KVKK Uyumu** | `kvkk-compliance` | Aydınlatma metni, açık rıza, VERBİS, 72h ihlal bildirimi |
 | **Teknik SEO** | `seo-technical-optimization` | JobPosting schema, Yandex Webmaster, Türkçe slug, hreflang |
 | **Incident Response** | `incident-response` | Production kriz yönetimi, post-mortem, 5-Why RCA |
-| **SAST Güvenlik** | 16 SAST skill | SQLi, XSS, SSRF, RCE, JWT, Hardcoded Secrets paralel tarama |
+| **SAST Güvenlik** | 15 SAST skill | SQLi, XSS, SSRF, RCE, JWT, Hardcoded Secrets paralel tarama |
 | **Observability** | `observability-stack` | KVKK-uyumlu log retention (6 ay), structured logging, RED/USE |
 
 > **Kariyer sitesi geliştiriyorsanız:** `kvkk-compliance` + `seo-technical-optimization` skill'lerini aktive edin. JobPosting schema Google for Jobs Türkiye'de sıralamayı doğrudan etkiler.

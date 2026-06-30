@@ -77,6 +77,7 @@ Check which of these files exist in `sast/`:
 - `missingauth-results.md`
 - `businesslogic-results.md`
 - `graphql-results.md`
+- `cors-results.md`
 
 Also read `sast/architecture.md` if it exists (use it for the project name and context when writing severity rationale).
 
@@ -197,6 +198,7 @@ Findings requiring manual review: N (see individual result files for details)
 | Missing Auth | `sast/missingauth-results.md` | Completed / Not run |
 | Business Logic | `sast/businesslogic-results.md` | Completed / Not run |
 | GraphQL injection | `sast/graphql-results.md` | Completed / Not run |
+| CORS Misconfiguration | `sast/cors-results.md` | Completed / Not run |
 ```
 
 ---

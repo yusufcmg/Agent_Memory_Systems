@@ -6,7 +6,7 @@ Full context: `.claude/memory-bank/`
 Skills: auto-configured by `/init` — only stack-relevant skills enabled. Disabled skills cost zero tokens; enabled skills inject description only until invoked.
 
 ## Agent Roster
-Model tiers: T1=opus (critical), T2=opus-fast (complex routine), T3=sonnet (routine), T4=haiku (fast/cheap)
+Model tiers: T1=opus/claude-opus-4-8 (critical), T2=sonnet/claude-sonnet-4-6 (complex routine), T3=sonnet (routine), T4=haiku/claude-haiku-4-5 (fast/cheap)
 
 | Invoke with...              | Agent        | Tier |
 |-----------------------------|--------------|------|

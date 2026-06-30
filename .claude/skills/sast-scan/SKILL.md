@@ -1,14 +1,14 @@
 ---
 name: sast-scan
 description: >
-  Full SAST (Static Application Security Testing) orchestration. Runs all 16 vulnerability
+  Full SAST (Static Application Security Testing) orchestration. Runs all 15 vulnerability
   detection skills in parallel via subagents. Source: github.com/utkusen/sast-skills.
   Trigger: "run SAST", "security scan", "/sast", full security audit.
 ---
 
 # SAST Full Scan Orchestrator
 
-Full security scan across 16 vulnerability classes using parallel subagents.
+Full security scan across 15 vulnerability classes using parallel subagents.
 Source: [utkusen/sast-skills](https://github.com/utkusen/sast-skills)
 
 ## Prerequisite
@@ -19,7 +19,7 @@ All Phase 1 subagents read this file.
 
 ## Phase 1 — Parallel Vulnerability Detection
 
-Launch all 16 subagents simultaneously after `sast/architecture.md` exists.
+Launch all 15 subagents simultaneously after `sast/architecture.md` exists.
 Each subagent activates its dedicated skill:
 
 | Skill | Detects |
@@ -28,7 +28,7 @@ Each subagent activates its dedicated skill:
 | `sast-xss` | Cross-Site Scripting |
 | `sast-ssrf` | Server-Side Request Forgery |
 | `sast-rce` | Remote Code Execution / Command Injection |
-| `sast-idor` | Insecure Direct Object Reference |
+| `sast-idor` | Insecure Direct Object Reference / Privilege Escalation |
 | `sast-missingauth` | Missing Auth / Broken Function-Level Authorization |
 | `sast-hardcodedsecrets` | Hardcoded Secrets (frontend/public code only) |
 | `sast-pathtraversal` | Path / Directory Traversal |
@@ -36,9 +36,9 @@ Each subagent activates its dedicated skill:
 | `sast-ssti` | Server-Side Template Injection |
 | `sast-xxe` | XML External Entity |
 | `sast-jwt` | JWT Implementation Flaws |
-| `sast-idor` | IDOR / Horizontal Privilege Escalation |
 | `sast-businesslogic` | Business Logic Flaws |
 | `sast-graphql` | GraphQL Injection |
+| `sast-cors` | CORS Misconfiguration |
 
 Each subagent outputs: `sast/{skillname}-results.md`
 
@@ -70,5 +70,6 @@ sast/
 ├── jwt-results.md
 ├── businesslogic-results.md
 ├── graphql-results.md
+├── cors-results.md
 └── final-report.md          # Phase 2 — consolidated findings
 ```

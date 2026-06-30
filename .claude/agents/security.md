@@ -39,17 +39,17 @@ Fix:   Use parameterized query instead of string interpolation
 
 ## Full SAST Scan (Preferred for Comprehensive Audits)
 
-For complete vulnerability coverage across 16 vulnerability classes, use the SAST skill pipeline:
+For complete vulnerability coverage across 15 vulnerability classes, use the SAST skill pipeline:
 
 1. Activate skill `sast-scan` for full orchestration
 2. Phase 0: activate `sast-analysis` → produces `sast/architecture.md`
-3. Phase 1: launch all 16 subagents in parallel (each activates its SAST skill)
+3. Phase 1: launch all 15 subagents in parallel (each activates its SAST skill)
 4. Phase 2: activate `sast-report` → merges into `sast/final-report.md`
 
 Or invoke `/sast` command for guided execution.
 
 **SAST covers:** SQLi, XSS, SSRF, RCE, IDOR, Missing Auth, Hardcoded Secrets,
-Path Traversal, File Upload, SSTI, XXE, JWT Flaws, Business Logic, GraphQL Injection
+Path Traversal, File Upload, SSTI, XXE, JWT Flaws, Business Logic, GraphQL Injection, CORS Misconfiguration
 
 ## Manual Scan Checklist — Quick Checks or Supplement to SAST
 First, read `core/project.md` to get the source directory (referred to as `$SRC` below).

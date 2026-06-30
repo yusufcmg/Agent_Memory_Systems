@@ -1,5 +1,5 @@
 ---
-description: Run full SAST security scan using 16 parallel vulnerability detection agents
+description: Run full SAST security scan using 15 parallel vulnerability detection agents
 ---
 
 # /sast — Full Security Scan
@@ -9,7 +9,7 @@ Runs a complete Static Application Security Testing (SAST) scan using [utkusen/s
 ## Usage
 
 ```
-/sast              # Full scan — all 16 vulnerability classes
+/sast              # Full scan — all 15 vulnerability classes
 /sast sqli xss     # Targeted scan — specific checks only
 ```
 
@@ -17,10 +17,10 @@ Runs a complete Static Application Security Testing (SAST) scan using [utkusen/s
 
 **Phase 0 (sequential):** Activates `sast-analysis` skill → maps architecture to `sast/architecture.md`
 
-**Phase 1 (parallel):** Launches 16 subagents simultaneously, one per vulnerability class:
+**Phase 1 (parallel):** Launches 15 subagents simultaneously, one per vulnerability class:
 - SQL Injection, XSS, SSRF, RCE, IDOR, Missing Auth
 - Hardcoded Secrets, Path Traversal, File Upload
-- SSTI, XXE, JWT Flaws, Business Logic, GraphQL Injection
+- SSTI, XXE, JWT Flaws, Business Logic, GraphQL Injection, CORS Misconfiguration
 
 **Phase 2 (sequential):** Activates `sast-report` → merges all findings into `sast/final-report.md`
 

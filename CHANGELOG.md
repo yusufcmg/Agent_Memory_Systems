@@ -18,10 +18,10 @@
 - `/sync-from-template`: Projede değiştirilen agent/skill'i AMS2 şablonuna geri yansıt
 
 #### SAST Entegrasyonu (utkusen/sast-skills)
-- 16 SAST skill entegre edildi: `sast-sqli`, `sast-xss`, `sast-ssrf`, `sast-rce`, `sast-idor`, `sast-missingauth`, `sast-hardcodedsecrets`, `sast-pathtraversal`, `sast-fileupload`, `sast-ssti`, `sast-xxe`, `sast-jwt`, `sast-businesslogic`, `sast-graphql`, `sast-cors`, `sast-csrf`
+- 15 SAST skill entegre edildi: `sast-sqli`, `sast-xss`, `sast-ssrf`, `sast-rce`, `sast-idor`, `sast-missingauth`, `sast-hardcodedsecrets`, `sast-pathtraversal`, `sast-fileupload`, `sast-ssti`, `sast-xxe`, `sast-jwt`, `sast-businesslogic`, `sast-graphql`, `sast-cors`
 - `sast-analysis`: Faz 0 mimari haritalama (sast/architecture.md üretir)
 - `sast-report`: Faz 2 paralel bulgu birleştirme → sast/final-report.md
-- `sast-scan`: Tam orkestrasyon (Faz 0 → 16 paralel → Faz 2)
+- `sast-scan`: Tam orkestrasyon (Faz 0 → 15 paralel → Faz 2)
 - security.md ve security-reviewer.md SAST entegrasyonu ile güncellendi
 
 #### Altyapı
@@ -32,7 +32,7 @@
 #### Model Stratejisi Güncellemesi (T-002)
 Model atamaları 4 kademeye çekildi:
 - **T1** (claude-opus-4-8): architect, teamlead, security, security-reviewer, incident-response, crypto-trading-strategist
-- **T2** (claude-opus-4-8 fast): backend, database, performance, deployment, planner
+- **T2** (claude-sonnet-4-6): backend, database, performance, deployment, planner
 - **T3** (claude-sonnet-4-6): frontend, devops, ml-engineer, mlops-engineer, data-engineer, rust-engineer, data-scientist
 - **T4** (claude-haiku-4-5): qa-frontend, qa-backend, docs, doc-updater, refactor-cleaner, *-build-resolver
 
