@@ -74,7 +74,7 @@ This kit gives you access to 46 agents, 143 skills, and 65 commands — all inst
   | `as chief-of-staff` | chief-of-staff | Email/Slack triage, communication workflows |
   | `as startup launch agent` | startup-launch | Domain setup, server hardening, SSL, nginx, zero-downtime deploy |
 
-  > All agents inherit your active Claude model. Switch models anytime with `/model` inside the session or the `--model` flag on the CLI.
+  > Each agent has an explicit model assignment based on a 4-tier cost strategy: T1=`claude-opus-4-8` (critical), T2=`claude-sonnet-4-6` (complex), T3=`claude-sonnet-4-6` (routine), T4=`claude-haiku-4-5` (fast/cheap). See `CLAUDE.md` for the full tier table.
 
 - **143 Custom Skills:** TDD loops, E2E test generation, Django/Laravel patterns, Architecture reviews, Deep Research, Polars/Pandas/sklearn/PyTorch/MLflow/Jupyter/Crypto-Trading patterns, and more.
   - Skills are **auto-configured during `/init`** — only skills relevant to your stack are loaded, keeping token overhead minimal.

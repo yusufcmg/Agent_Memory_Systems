@@ -12,16 +12,16 @@
 ### Model Stratejisi (Yeni)
 Kullanıcı kararı: **"Tercihen Opus, bazı yerlerde Sonnet ve Opus 4.6"**
 
-Üç katmanlı model atama:
+Dört katmanlı model atama (güncel):
 
 | Tier | Model | Kullanım | Maliyet | Hangi ajanlar |
 |---|---|---|---|---|
-| **T1** | `claude-opus-4-7` | Kritik mimari + güvenlik + final review | En yüksek | architect, teamlead, security, security-reviewer, incident-response |
-| **T2** | `claude-opus-4-6` (Fast mode) | Karmaşık ama rutin işler | Orta-yüksek | chief-of-staff, planner, backend, database, performance, deployment |
-| **T3** | `claude-sonnet-4-6` | Rutin geliştirme | Düşük | frontend, devops, e2e-runner, dil reviewer'ları, tdd-guide, harness-optimizer, onboarding, loop-operator, docs-lookup |
-| **T4** | `claude-haiku-4-5` | Hızlı/ucuz işler | En düşük | qa-frontend, qa-backend, docs, doc-updater, refactor-cleaner, *-build-resolver |
+| **T1** | `claude-opus-4-8` | Kritik mimari + güvenlik + final review | En yüksek | architect, teamlead, security, security-reviewer, incident-response, crypto-trading-strategist |
+| **T2** | `claude-sonnet-4-6` | Karmaşık ama rutin işler | Orta | planner, backend, database, performance, deployment, chief-of-staff |
+| **T3** | `claude-sonnet-4-6` | Rutin geliştirme | Düşük | frontend, devops, rust-engineer, data-scientist, ml-engineer, mlops-engineer, data-engineer, tdd-guide, code-reviewer, e2e-runner, harness-optimizer, onboarding, loop-operator, startup-launch, dil reviewer'ları |
+| **T4** | `claude-haiku-4-5-20251001` | Hızlı/ucuz işler | En düşük | qa-frontend, qa-backend, docs, doc-updater, refactor-cleaner, docs-lookup, *-build-resolver |
 
-**Önemli:** T1 ve T2 ayrımı için frontmatter'da literal model ID kullanılacak (`model: claude-opus-4-7`), generic `opus` değil. Bu sayede Opus 4.7 ile Opus 4.6 arasında net ayrım kalır.
+**Not:** Tüm 46 ajan frontmatter'da literal model ID taşıyor — session modelini miras almaz.
 
 ### Ekosistem Genişlemesi
 - **Mobile:** React Native + Compose Multiplatform — iki paralel ajan

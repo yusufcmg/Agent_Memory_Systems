@@ -67,7 +67,7 @@ Bu repo, standart Claude Code kullanımındaki en büyük iki problemi çözer:
   | `as chief-of-staff` | chief-of-staff | E-posta/Slack triaj, iletişim iş akışları |
   | `as startup launch agent` | startup-launch | Domain kurulumu, sunucu güvenliği, SSL, nginx, sıfır kesintili yayın |
 
-  > Tüm ajanlar oturumunuzda aktif olan modeli miras alır. Modeli oturum içinde `/model` komutuyla veya CLI'da `--model` flag'iyle istediğiniz zaman değiştirebilirsiniz.
+  > Her ajan, 4 katmanlı maliyet stratejisine göre explicit bir model atamasına sahiptir: T1=`claude-opus-4-8` (kritik), T2=`claude-sonnet-4-6` (karmaşık), T3=`claude-sonnet-4-6` (rutin), T4=`claude-haiku-4-5` (hızlı/ucuz). Tam tier tablosu için `CLAUDE.md`'ye bakın.
 
 - **143 Özel Yetenek (Skill):** TDD Döngüleri, E2E Test Yazımı, Django/Laravel Kalıpları, Mimari İnceleme, Deep Research, Polars/Pandas/sklearn/PyTorch/MLflow/Jupyter/Kripto-Trading kalıpları, production Observability (LOG+Metric+Trace), Teknik SEO + Core Web Vitals, KVKK (Türkiye veri koruma) uyumluluğu, Incident Response runbook/post-mortem ve daha fazlası.
   - Yetenekler **`/init` sırasında otomatik yapılandırılır** — yalnızca projenizin stack'ine uygun olanlar aktif edilir, token yükü minimumda tutulur.
