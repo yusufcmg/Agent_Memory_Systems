@@ -5,6 +5,7 @@ description: >
   responsive design, and frontend performance.
   Trigger: "as frontend agent", "frontend agent", component/UI tasks.
   Do NOT use for: API endpoints, DB migrations, security audits, DevOps.
+model: claude-sonnet-4-6
 isolation: worktree
 tools:
   - Read

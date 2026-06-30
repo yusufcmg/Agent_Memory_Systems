@@ -16,15 +16,15 @@ This repository solves the two biggest problems in standard Claude Code usage:
 
 ## What's Included?
 
-This kit gives you access to 45 agents, 121 skills, and 62 commands — all installed under `.claude/` as plain markdown files.
+This kit gives you access to 46 agents, 143 skills, and 65 commands — all installed under `.claude/` as plain markdown files.
 
 | Category | Count |
 |----------|------:|
-| Agents | ✅ 45 agents |
-| Skills | ✅ 121 skills |
-| Commands | ✅ 62 commands |
+| Agents | ✅ 46 agents |
+| Skills | ✅ 143 skills |
+| Commands | ✅ 65 commands |
 
-- **45 Expert Agents:**
+- **46 Expert Agents:**
 
   | Invoke with | Agent | Purpose |
   |-------------|-------|---------|
@@ -76,12 +76,12 @@ This kit gives you access to 45 agents, 121 skills, and 62 commands — all inst
 
   > All agents inherit your active Claude model. Switch models anytime with `/model` inside the session or the `--model` flag on the CLI.
 
-- **121 Custom Skills:** TDD loops, E2E test generation, Django/Laravel patterns, Architecture reviews, Deep Research, Polars/Pandas/sklearn/PyTorch/MLflow/Jupyter/Crypto-Trading patterns, and more.
+- **143 Custom Skills:** TDD loops, E2E test generation, Django/Laravel patterns, Architecture reviews, Deep Research, Polars/Pandas/sklearn/PyTorch/MLflow/Jupyter/Crypto-Trading patterns, and more.
   - Skills are **auto-configured during `/init`** — only skills relevant to your stack are loaded, keeping token overhead minimal.
   - A fresh install starts with **14 universal skills** active (always on: TDD, security, memory, research, etc.).
-  - After `/init`, Claude enables only the skills matched to your stack keywords (~20–30 total out of 121).
+  - After `/init`, Claude enables only the skills matched to your stack keywords (~20–30 total out of 143).
   - Disabled skills cost **zero tokens** — fully excluded from the context window via `disable-model-invocation: true` in their frontmatter.
-- **62 Slash Commands:** `/init`, `/tdd`, `/code-review`, `/learn`, `/new-adr`, language-specific build/test/review commands.
+- **65 Slash Commands:** `/init`, `/tdd`, `/code-review`, `/learn`, `/new-adr`, language-specific build/test/review commands.
 - **Persistent Memory (Memory-Bank):** All architecture decisions (ADR) and tasks are stored under `.claude/memory-bank/`. Ships empty — populated entirely by `/init`.
 - **Self-Learning (/learn):** Extract patterns from a successful session to create a new reusable skill.
 
@@ -298,7 +298,7 @@ bash .claude/scripts/configure-skills.sh
 ```
 
 **How it works:**
-1. Disables ALL 121 skills (inserts `disable-model-invocation: true` into frontmatter)
+1. Disables ALL 143 skills (inserts `disable-model-invocation: true` into frontmatter)
 2. Re-enables 14 universal skills (always on: TDD, security, memory, research, etc.)
 3. Re-enables keyword-matched skills for your stack (57 keywords → 96 skills covered)
 

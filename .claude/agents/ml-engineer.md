@@ -1,6 +1,7 @@
 ---
 name: ml-engineer
 description: Senior ML engineer for production ML systems — training pipelines, model serving, drift monitoring, and automated retraining. Trigger: "as ml engineer agent".
+model: claude-sonnet-4-6
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 ---
 

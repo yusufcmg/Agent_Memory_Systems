@@ -69,12 +69,12 @@ Bu repo, standart Claude Code kullanımındaki en büyük iki problemi çözer:
 
   > Tüm ajanlar oturumunuzda aktif olan modeli miras alır. Modeli oturum içinde `/model` komutuyla veya CLI'da `--model` flag'iyle istediğiniz zaman değiştirebilirsiniz.
 
-- **125 Özel Yetenek (Skill):** TDD Döngüleri, E2E Test Yazımı, Django/Laravel Kalıpları, Mimari İnceleme, Deep Research, Polars/Pandas/sklearn/PyTorch/MLflow/Jupyter/Kripto-Trading kalıpları, production Observability (LOG+Metric+Trace), Teknik SEO + Core Web Vitals, KVKK (Türkiye veri koruma) uyumluluğu, Incident Response runbook/post-mortem ve daha fazlası.
+- **143 Özel Yetenek (Skill):** TDD Döngüleri, E2E Test Yazımı, Django/Laravel Kalıpları, Mimari İnceleme, Deep Research, Polars/Pandas/sklearn/PyTorch/MLflow/Jupyter/Kripto-Trading kalıpları, production Observability (LOG+Metric+Trace), Teknik SEO + Core Web Vitals, KVKK (Türkiye veri koruma) uyumluluğu, Incident Response runbook/post-mortem ve daha fazlası.
   - Yetenekler **`/init` sırasında otomatik yapılandırılır** — yalnızca projenizin stack'ine uygun olanlar aktif edilir, token yükü minimumda tutulur.
   - Taze kurulumda **14 evrensel skill** aktiftir (her zaman açık: TDD, güvenlik, hafıza, araştırma vb.).
-  - `/init` sonrasında stack keyword'lerinize göre sadece ilgili skill'ler aktive edilir (~20–30 arası / 125 toplam).
+  - `/init` sonrasında stack keyword'lerinize göre sadece ilgili skill'ler aktive edilir (~20–30 arası / 143 toplam).
   - Devre dışı skill'ler **sıfır token** tüketir — frontmatter'daki `disable-model-invocation: true` sayesinde context window'a hiç girmezler.
-- **64 Slash Komutu:** `/init`, `/tdd`, `/code-review`, `/learn`, `/new-adr`, `/incident`, `/sync-from-template`, dil bazlı build/test/review komutları.
+- **65 Slash Komutu:** `/init`, `/tdd`, `/code-review`, `/learn`, `/new-adr`, `/incident`, `/sync-from-template`, dil bazlı build/test/review komutları.
 - **Kalıcı Hafıza (Memory-Bank):** Tüm mimari kararlarınız (ADR) ve görevleriniz `.claude/memory-bank/` klasöründe tutulur. Boş gelir — `/init` tarafından doldurulur.
 - **Kendi Kendine Öğrenme (/learn):** Başarılı bir kodlama seansını sisteme yeni bir "yetenek" olarak öğretebilirsiniz.
 
@@ -294,7 +294,7 @@ bash .claude/scripts/configure-skills.sh
 ```
 
 **Nasıl çalışır:**
-1. Tüm 125 skill'i devre dışı bırakır (frontmatter'a `disable-model-invocation: true` ekler)
+1. Tüm 143 skill'i devre dışı bırakır (frontmatter'a `disable-model-invocation: true` ekler)
 2. 14 evrensel skill'i yeniden etkinleştirir (her zaman açık: TDD, güvenlik, hafıza, araştırma vb.)
 3. Stack'iniz için keyword'e uyan skill'leri etkinleştirir (57 keyword → 96 skill kapsanır)
 

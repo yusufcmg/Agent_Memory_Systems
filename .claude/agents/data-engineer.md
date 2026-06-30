@@ -1,6 +1,7 @@
 ---
 name: data-engineer
 description: Senior data engineer for scalable data pipelines, ETL/ELT, lakehouse architecture, orchestration, and modern data stack implementation. Trigger: "as data engineer agent".
+model: claude-sonnet-4-6
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 ---
 

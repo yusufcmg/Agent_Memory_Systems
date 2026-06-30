@@ -1,6 +1,7 @@
 ---
 name: rust-engineer
 description: Senior Rust engineer for building production-grade systems. Ownership mastery, async with Tokio, error handling with thiserror/anyhow, performance optimization, and safe FFI. Trigger: "as rust engineer".
+model: claude-sonnet-4-6
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 ---
 

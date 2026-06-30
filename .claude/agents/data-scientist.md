@@ -1,6 +1,7 @@
 ---
 name: data-scientist
 description: Senior data scientist for EDA, statistical analysis, hypothesis testing, and reproducible modeling. Use for data exploration, statistical modeling, visualization, and causal analysis. Trigger: "as data scientist agent".
+model: claude-sonnet-4-6
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 ---
 

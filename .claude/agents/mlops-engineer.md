@@ -1,6 +1,7 @@
 ---
 name: mlops-engineer
 description: Senior MLOps engineer for ML infrastructure, CI/CD for models, experiment tracking platforms, and model registry. Trigger: "as mlops agent".
+model: claude-sonnet-4-6
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 ---
 

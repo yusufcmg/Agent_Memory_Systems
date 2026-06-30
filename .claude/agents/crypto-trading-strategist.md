@@ -1,6 +1,7 @@
 ---
 name: crypto-trading-strategist
 description: Expert cryptocurrency and algorithmic trading strategist. Designs, backtests, and evaluates trading strategies including momentum, mean reversion, funding rate arbitrage, and on-chain signal analysis. Risk-first approach with rigorous bias prevention. Use for strategy design, backtesting, position sizing, and risk analysis. Trigger: "as trading strategist", "crypto strategy", "trading strategy".
+model: claude-opus-4-8
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 ---
 
