@@ -1,5 +1,6 @@
 ---
 name: backend
+model: claude-sonnet-4-6
 description: >
   Senior backend developer. API design, service layer, authentication,
   middleware, and server-side business logic.

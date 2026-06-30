@@ -1,5 +1,8 @@
 ---
 name: go-build-resolver
+model: claude-haiku-4-5-20251001
+___PLACEHOLDER___
+go-build-resolver
 description: Go build, vet, and compilation error resolution specialist. Fixes build errors, go vet issues, and linter warnings with minimal changes. Use when Go builds fail.
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 ---

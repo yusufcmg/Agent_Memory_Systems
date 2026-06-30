@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sitemap Template for Career/Job Listing Sites
+
+  Static sitemap (for small sites < 1000 URLs):
+  - Edit this file manually
+  - Submit to Google Search Console and Yandex Webmaster
+
+  Dynamic sitemap (recommended for large sites):
+  - Generate programmatically (see FastAPI example below)
+  - Auto-submit via Search Console API
+
+  Sitemap rules:
+  - Max 50,000 URLs per sitemap file
+  - Max 50MB uncompressed per file
+  - For larger sites, use sitemap index (sitemapindex)
+  - Update lastmod when page content changes significantly
+  - changefreq and priority are hints, not instructions (Google may ignore)
+-->
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.example.com/</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <!-- Hreflang for multilingual sites -->
+    <xhtml:link rel="alternate" hreflang="tr-TR" href="https://www.example.com/tr/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://www.example.com/en/" />
+  </url>
+
+  <!-- Job listing categories -->
+  <url>
+    <loc>https://www.example.com/ilanlar/yazilim-gelistirme</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.example.com/ilanlar/veri-bilimi</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Individual job listings (high frequency, high priority) -->
+  <url>
+    <loc>https://www.example.com/ilan/senior-backend-developer-ornek-sirket</loc>
+    <lastmod>2024-01-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Static pages -->
+  <url>
+    <loc>https://www.example.com/hakkimizda</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.example.com/iletisim</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Blog/Articles -->
+  <url>
+    <loc>https://www.example.com/blog/yazilim-muhendisi-maas-2024</loc>
+    <lastmod>2024-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <!-- Optional: image for image sitemap -->
+    <image:image>
+      <image:loc>https://www.example.com/blog/og/yazilim-maas-2024.jpg</image:loc>
+      <image:title>Türkiye Yazılım Mühendisi Maaşları 2024</image:title>
+    </image:image>
+  </url>
+
+</urlset>
+
+<!--
+=== FastAPI Dynamic Sitemap Endpoint Example ===
+
+from fastapi import FastAPI
+from fastapi.responses import Response
+from datetime import datetime, timezone
+
+app = FastAPI()
+
+@app.get("/sitemap.xml", response_class=Response)
+async def sitemap():
+    # Fetch URLs from database
+    jobs = await db.fetch("SELECT slug, updated_at FROM jobs WHERE active = true ORDER BY updated_at DESC LIMIT 50000")
+
+    urls = []
+
+    # Static pages
+    static_pages = [
+        ("/", "1.0", "daily"),
+        ("/ilanlar", "0.9", "hourly"),
+        ("/hakkimizda", "0.5", "monthly"),
+    ]
+    for path, priority, changefreq in static_pages:
+        urls.append(f"""
+  <url>
+    <loc>https://www.kariyerradari.com{path}</loc>
+    <changefreq>{changefreq}</changefreq>
+    <priority>{priority}</priority>
+  </url>""")
+
+    # Dynamic job pages
+    for job in jobs:
+        lastmod = job["updated_at"].strftime("%Y-%m-%d")
+        urls.append(f"""
+  <url>
+    <loc>https://www.kariyerradari.com/ilan/{job["slug"]}</loc>
+    <lastmod>{lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>""")
+
+    content = f'''<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{"".join(urls)}
+</urlset>'''
+
+    return Response(content=content, media_type="application/xml")
+
+
+=== Sitemap Index (for > 50,000 URLs) ===
+
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://www.example.com/sitemap-pages.xml</loc>
+    <lastmod>2024-01-15</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.example.com/sitemap-jobs-1.xml</loc>
+    <lastmod>2024-01-15</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.example.com/sitemap-jobs-2.xml</loc>
+    <lastmod>2024-01-15</lastmod>
+  </sitemap>
+</sitemapindex>
+-->

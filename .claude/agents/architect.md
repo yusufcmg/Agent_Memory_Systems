@@ -1,5 +1,6 @@
 ---
 name: architect
+model: claude-opus-4-8
 description: >
   Software architect. System design, technology decisions, ADR creation,
   migration planning, architecture evolution.

@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Kariyer Radarı'na nasıl üye olabilirim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kariyer Radarı'na üye olmak için ana sayfamızdaki 'Üye Ol' butonuna tıklayın. E-posta adresiniz veya Google/LinkedIn hesabınızla saniyeler içinde üye olabilirsiniz. Üyelik tamamen ücretsizdir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "İş ilanlarına nasıl başvurabilirim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "İlgilendiğiniz iş ilanını açın ve 'Başvur' butonuna tıklayın. Bazı ilanlar doğrudan platformumuz üzerinden, bazıları şirketin kendi kariyer sayfasına yönlendirerek başvuru alır. Başvurularınızı 'Profilim > Başvurularım' bölümünden takip edebilirsiniz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hangi teknoloji pozisyonları için ilan bulabilirim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Kariyer Radarı'nda yazılım geliştirme, veri bilimi, yapay zeka/makine öğrenmesi, DevOps, siber güvenlik, ürün yönetimi, UX/UI tasarım ve daha birçok teknoloji pozisyonu için ilan bulabilirsiniz. Tüm kategorilerimizi İlanlar sayfamızdan inceleyebilirsiniz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Uzaktan çalışma ilanlarını nasıl filtrelerim?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "İlanlar sayfasında 'Çalışma Modeli' filtresinden 'Uzaktan' veya 'Hibrit' seçeneklerini işaretleyerek filtreleyebilirsiniz. Ayrıca arama çubuğuna 'remote' veya 'uzaktan' yazarak da arama yapabilirsiniz."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Şirketler ilan nasıl yayınlayabilir?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Şirketiniz adına ilan yayınlamak için İşverenler sayfamızı ziyaret edin. İlk ilanınızı ücretsiz yayınlayabilirsiniz. Birden fazla ilan için paket seçeneklerimizi incelemenizi öneririz. Destek için ilan@kariyerradari.com adresine yazabilirsiniz."
+      }
+    }
+  ]
+}

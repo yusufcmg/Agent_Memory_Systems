@@ -1,5 +1,8 @@
 ---
 name: cpp-build-resolver
+model: claude-haiku-4-5-20251001
+___PLACEHOLDER___
+cpp-build-resolver
 description: C++ build, CMake, and compilation error resolution specialist. Fixes build errors, linker issues, and template errors with minimal changes. Use when C++ builds fail.
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 ---

@@ -1,5 +1,8 @@
 ---
 name: refactor-cleaner
+model: claude-haiku-4-5-20251001
+___PLACEHOLDER___
+refactor-cleaner
 description: Dead code cleanup and consolidation specialist. Use PROACTIVELY for removing unused code, duplicates, and refactoring. Runs analysis tools (knip, depcheck, ts-prune) to identify dead code and safely removes it.
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 ---

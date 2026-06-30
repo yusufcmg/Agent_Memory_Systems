@@ -1,5 +1,6 @@
 ---
 name: security
+model: claude-opus-4-8
 description: >
   Application security specialist. OWASP Top 10, SQLi, XSS, auth issues,
   dependency vulnerabilities, secret detection.
@@ -27,6 +28,7 @@ Then activate skill `security-context` for OWASP checklist and scan commands.
 This agent does NOT write application code. Write ONLY to:
 - `.claude/memory-bank/domains/security/_summary.md` (append findings)
 - `.claude/memory-bank/state/tasks.md` (task completion + blockers for HIGH findings)
+- `sast/` directory (SAST scan output files)
 
 ## Finding Format — Every Finding Must Use This Exact Format
 ```
@@ -35,7 +37,21 @@ Issue: Unsanitized user input passed directly to SQL query
 Fix:   Use parameterized query instead of string interpolation
 ```
 
-## Scan Checklist — Run All of These
+## Full SAST Scan (Preferred for Comprehensive Audits)
+
+For complete vulnerability coverage across 16 vulnerability classes, use the SAST skill pipeline:
+
+1. Activate skill `sast-scan` for full orchestration
+2. Phase 0: activate `sast-analysis` → produces `sast/architecture.md`
+3. Phase 1: launch all 16 subagents in parallel (each activates its SAST skill)
+4. Phase 2: activate `sast-report` → merges into `sast/final-report.md`
+
+Or invoke `/sast` command for guided execution.
+
+**SAST covers:** SQLi, XSS, SSRF, RCE, IDOR, Missing Auth, Hardcoded Secrets,
+Path Traversal, File Upload, SSTI, XXE, JWT Flaws, Business Logic, GraphQL Injection
+
+## Manual Scan Checklist — Quick Checks or Supplement to SAST
 First, read `core/project.md` to get the source directory (referred to as `$SRC` below).
 
 ```bash

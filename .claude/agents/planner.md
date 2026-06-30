@@ -1,5 +1,6 @@
 ---
 name: planner
+model: claude-sonnet-4-6
 description: >
   Project planner and task breakdown specialist. Decomposes features into
   agent-ready tasks, assigns to right agents, estimates complexity.

@@ -1,5 +1,6 @@
 ---
 name: teamlead
+model: claude-opus-4-8
 description: >
   Senior tech lead and code reviewer. Reviews all changes, approves architectural
   decisions, resolves cross-domain conflicts, ensures quality gates.

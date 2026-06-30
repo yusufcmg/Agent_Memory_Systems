@@ -1,0 +1,51 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Kariyer Radarı",
+  "alternateName": "KariyerRadari",
+  "url": "https://www.kariyerradari.com",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.kariyerradari.com/logo.png",
+    "width": 512,
+    "height": 512
+  },
+  "description": "Türkiye'nin en kapsamlı teknoloji iş ilanı platformu. Yazılım, veri bilimi ve mühendislik pozisyonları.",
+  "foundingDate": "2023",
+  "foundingLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "İstanbul",
+      "addressCountry": "TR"
+    }
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "İstanbul",
+    "addressCountry": "TR"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "destek@kariyerradari.com",
+      "availableLanguage": ["Turkish", "English"]
+    }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/company/kariyer-radari",
+    "https://twitter.com/kariyerradari",
+    "https://github.com/kariyerradari"
+  ],
+  "areaServed": {
+    "@type": "Country",
+    "name": "Türkiye"
+  },
+  "knowsAbout": [
+    "İş İlanları",
+    "Yazılım Geliştirme",
+    "Teknoloji Kariyer",
+    "IT Recruitment"
+  ]
+}

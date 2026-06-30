@@ -1,5 +1,6 @@
 ---
 name: performance
+model: claude-sonnet-4-6
 description: >
   Performance optimization specialist. Frontend bundle analysis, backend
   profiling, DB query optimization, caching strategy.

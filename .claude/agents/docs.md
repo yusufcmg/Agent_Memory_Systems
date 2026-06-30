@@ -1,5 +1,6 @@
 ---
 name: docs
+model: claude-haiku-4-5-20251001
 description: >
   Technical documentation writer. README, API docs, OpenAPI/Swagger specs,
   Mermaid architecture diagrams, inline code comments.

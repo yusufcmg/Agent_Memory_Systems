@@ -1,5 +1,6 @@
 ---
 name: database
+model: claude-sonnet-4-6
 description: >
   Database architect. Schema design, migrations, query optimization, indexing.
   Trigger: "as database agent", schema change, migration, query optimization.

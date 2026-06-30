@@ -1,0 +1,58 @@
+{
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  "title": "Senior Backend Developer",
+  "description": "<p>We are looking for a Senior Backend Developer to join our team. You will be responsible for designing and implementing scalable APIs, optimizing database performance, and collaborating with frontend engineers.</p><p><strong>Responsibilities:</strong></p><ul><li>Design and implement RESTful APIs</li><li>Optimize SQL and NoSQL queries</li><li>Code review and mentoring</li></ul><p><strong>Requirements:</strong></p><ul><li>5+ years of backend development experience</li><li>Proficiency in Python or Node.js</li><li>PostgreSQL experience</li></ul>",
+  "datePosted": "2024-01-15",
+  "validThrough": "2024-03-15T00:00:00",
+  "employmentType": "FULL_TIME",
+  "hiringOrganization": {
+    "@type": "Organization",
+    "name": "Örnek Şirket A.Ş.",
+    "sameAs": "https://www.ornek-sirket.com.tr",
+    "logo": "https://www.ornek-sirket.com.tr/logo.png"
+  },
+  "jobLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Maslak Mahallesi, Büyükdere Caddesi No:255",
+      "addressLocality": "İstanbul",
+      "addressRegion": "İstanbul",
+      "postalCode": "34450",
+      "addressCountry": "TR"
+    }
+  },
+  "jobLocationType": "TELECOMMUTE",
+  "applicantLocationRequirements": {
+    "@type": "Country",
+    "name": "Türkiye"
+  },
+  "baseSalary": {
+    "@type": "MonetaryAmount",
+    "currency": "TRY",
+    "value": {
+      "@type": "QuantitativeValue",
+      "minValue": 80000,
+      "maxValue": 120000,
+      "unitText": "MONTH"
+    }
+  },
+  "workHours": "Haftalık 40 saat",
+  "experienceRequirements": "5 yıl veya üzeri backend geliştirme deneyimi",
+  "educationRequirements": "Bilgisayar Mühendisliği veya ilgili alanda lisans",
+  "skills": "Python, Node.js, PostgreSQL, Redis, Docker, AWS",
+  "industry": "Yazılım / Teknoloji",
+  "occupationalCategory": "15-1252 Software Developers",
+  "identifier": {
+    "@type": "PropertyValue",
+    "name": "Kariyer Radarı",
+    "value": "JOB-2024-001"
+  },
+  "directApply": true,
+  "applicationContact": {
+    "@type": "ContactPoint",
+    "contactType": "HR",
+    "email": "kariyer@ornek-sirket.com.tr"
+  }
+}

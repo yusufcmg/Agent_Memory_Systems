@@ -1,5 +1,8 @@
 ---
 name: build-error-resolver
+model: claude-haiku-4-5-20251001
+___PLACEHOLDER___
+build-error-resolver
 description: Build and TypeScript error resolution specialist. Use PROACTIVELY when build fails or type errors occur. Fixes build/type errors only with minimal diffs, no architectural edits. Focuses on getting the build green quickly.
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 ---

@@ -1,5 +1,6 @@
 ---
 name: qa-backend
+model: claude-haiku-4-5-20251001
 description: >
   Backend QA engineer. API contract tests, integration tests, DB query tests.
   Trigger: "as qa backend agent", write backend tests, API tests.

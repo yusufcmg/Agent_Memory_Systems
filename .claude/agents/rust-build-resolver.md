@@ -1,5 +1,8 @@
 ---
 name: rust-build-resolver
+model: claude-haiku-4-5-20251001
+___PLACEHOLDER___
+rust-build-resolver
 description: Rust build, compilation, and dependency error resolution specialist. Fixes cargo build errors, borrow checker issues, and Cargo.toml problems with minimal changes. Use when Rust builds fail.
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 ---

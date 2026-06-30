@@ -1,5 +1,6 @@
 ---
 name: qa-frontend
+model: claude-haiku-4-5-20251001
 description: >
   Frontend QA engineer. Writes unit, component, and E2E tests.
   Trigger: "as qa frontend agent", write frontend tests, test coverage.

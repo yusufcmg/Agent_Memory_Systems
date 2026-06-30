@@ -1,5 +1,8 @@
 ---
 name: kotlin-build-resolver
+model: claude-haiku-4-5-20251001
+___PLACEHOLDER___
+kotlin-build-resolver
 description: Kotlin/Gradle build, compilation, and dependency error resolution specialist. Fixes build errors, Kotlin compiler errors, and Gradle issues with minimal changes. Use when Kotlin builds fail.
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
 ---

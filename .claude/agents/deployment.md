@@ -1,5 +1,6 @@
 ---
 name: deployment
+model: claude-sonnet-4-6
 description: >
   Deployment specialist. Pre-deployment checklist, environment validation,
   production readiness audit, rollback planning, and go-live guidance.

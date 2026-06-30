@@ -44,6 +44,7 @@ Bu repo, standart Claude Code kullanımındaki en büyük iki problemi çözer:
   | `as data engineer agent` | data-engineer | ETL pipeline'ları, veri ambarı, Polars/Pandas |
   | `as rust engineer` | rust-engineer | Production Rust sistemleri, async/Tokio, FFI |
   | `as trading strategist` | crypto-trading-strategist | Kripto strateji tasarımı, backtesting, risk yönetimi |
+  | `as incident agent` | incident-response | Production incident triajı, runbook, 5-Why RCA, post-mortem |
   | `as python-reviewer` | python-reviewer | PEP 8, type hint'ler, güvenlik, Pythonik deyimler |
   | `as go-reviewer` | go-reviewer | İdiomatic Go, eş zamanlılık, hata işleme |
   | `as rust-reviewer` | rust-reviewer | Sahiplik, yaşam süreleri, unsafe kullanımı |
@@ -68,12 +69,12 @@ Bu repo, standart Claude Code kullanımındaki en büyük iki problemi çözer:
 
   > Tüm ajanlar oturumunuzda aktif olan modeli miras alır. Modeli oturum içinde `/model` komutuyla veya CLI'da `--model` flag'iyle istediğiniz zaman değiştirebilirsiniz.
 
-- **121 Özel Yetenek (Skill):** TDD Döngüleri, E2E Test Yazımı, Django/Laravel Kalıpları, Mimari İnceleme, Deep Research, Polars/Pandas/sklearn/PyTorch/MLflow/Jupyter/Kripto-Trading kalıpları ve daha fazlası.
+- **125 Özel Yetenek (Skill):** TDD Döngüleri, E2E Test Yazımı, Django/Laravel Kalıpları, Mimari İnceleme, Deep Research, Polars/Pandas/sklearn/PyTorch/MLflow/Jupyter/Kripto-Trading kalıpları, production Observability (LOG+Metric+Trace), Teknik SEO + Core Web Vitals, KVKK (Türkiye veri koruma) uyumluluğu, Incident Response runbook/post-mortem ve daha fazlası.
   - Yetenekler **`/init` sırasında otomatik yapılandırılır** — yalnızca projenizin stack'ine uygun olanlar aktif edilir, token yükü minimumda tutulur.
   - Taze kurulumda **14 evrensel skill** aktiftir (her zaman açık: TDD, güvenlik, hafıza, araştırma vb.).
   - `/init` sonrasında stack keyword'lerinize göre sadece ilgili skill'ler aktive edilir (~20–30 arası / 121 toplam).
   - Devre dışı skill'ler **sıfır token** tüketir — frontmatter'daki `disable-model-invocation: true` sayesinde context window'a hiç girmezler.
-- **62 Slash Komutu:** `/init`, `/tdd`, `/code-review`, `/learn`, `/new-adr`, dil bazlı build/test/review komutları.
+- **64 Slash Komutu:** `/init`, `/tdd`, `/code-review`, `/learn`, `/new-adr`, `/incident`, `/sync-from-template`, dil bazlı build/test/review komutları.
 - **Kalıcı Hafıza (Memory-Bank):** Tüm mimari kararlarınız (ADR) ve görevleriniz `.claude/memory-bank/` klasöründe tutulur. Boş gelir — `/init` tarafından doldurulur.
 - **Kendi Kendine Öğrenme (/learn):** Başarılı bir kodlama seansını sisteme yeni bir "yetenek" olarak öğretebilirsiniz.
 
@@ -314,6 +315,50 @@ Claude/CCR sohbetindeyken kullanabileceğiniz komutlar:
 | `/new-adr` | Yeni bir Mimari Karar Raporu (ADR) oluşturur |
 | `/learn` | Başarılı bir seansı yeni bir yetenek olarak sisteme ekler |
 | `/model` | Aktif modeli değiştirir |
+| `/incident P0` | Production P0/P1 incident triajı başlatır — containment + RCA + post-mortem |
+| `/sast` | 16 paralel SAST alt-ajanıyla tam güvenlik taraması başlatır |
+| `/sync-from-template` | Projede değiştirdiğin agent/skill'i AMS2 şablonuna geri yansıtır |
+
+---
+
+## AMS2 → Projeye Senkronizasyon
+
+Mevcut bir projede AMS2 güncellemelerini uygularken `bash install.sh` **kullanmayın** — memory-bank silinir.
+
+Bunun yerine güvenli sync betiğini kullanın:
+
+```bash
+# Neyin değişeceğini önce gör (hiçbir şey değiştirmez)
+bash scripts/sync-to-project.sh ~/projects/mevcut-projeniz --dry-run
+
+# Değişiklikleri uygula (onay sorar)
+bash scripts/sync-to-project.sh ~/projects/mevcut-projeniz --apply
+```
+
+Sync modu şunları **korur:** `memory-bank/`, `settings.local.json`, `active-skills.txt`
+Sync modu şunları **günceller:** `agents/`, `skills/`, `commands/`, `rules/`, `scripts/`
+
+Projede yaptığın bir iyileştirmeyi AMS2 şablonuna geri almak için:
+```bash
+/sync-from-template --diff        # Farkları gör
+/sync-from-template --apply       # AMS2'ye yansıt (onay ister)
+```
+
+---
+
+## Türkiye'ye Özel Özellikler
+
+Bu kit, Türkiye'deki geliştirme ihtiyaçlarına yönelik ek içerik barındırır:
+
+| Özellik | Skill / Agent | Açıklama |
+|---------|--------------|---------|
+| **KVKK Uyumu** | `kvkk-compliance` | Aydınlatma metni, açık rıza, VERBİS, 72h ihlal bildirimi |
+| **Teknik SEO** | `seo-technical-optimization` | JobPosting schema, Yandex Webmaster, Türkçe slug, hreflang |
+| **Incident Response** | `incident-response` | Production kriz yönetimi, post-mortem, 5-Why RCA |
+| **SAST Güvenlik** | 16 SAST skill | SQLi, XSS, SSRF, RCE, JWT, Hardcoded Secrets paralel tarama |
+| **Observability** | `observability-stack` | KVKK-uyumlu log retention (6 ay), structured logging, RED/USE |
+
+> **Kariyer sitesi geliştiriyorsanız:** `kvkk-compliance` + `seo-technical-optimization` skill'lerini aktive edin. JobPosting schema Google for Jobs Türkiye'de sıralamayı doğrudan etkiler.
 
 ---
 
