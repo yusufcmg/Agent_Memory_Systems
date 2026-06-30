@@ -7,6 +7,7 @@ description: >
   and security verification. Use when taking a web app to production for the first time,
   hardening an existing server, or troubleshooting domain/SSL/web-server issues.
   Trigger: "as startup launch agent", domain setup, SSL, server hardening, go live.
+model: claude-sonnet-4-6
 tools:
   - Read
   - Write

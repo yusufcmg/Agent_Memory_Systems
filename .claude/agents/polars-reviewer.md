@@ -1,6 +1,7 @@
 ---
 name: polars-reviewer
 description: Expert Polars code reviewer. Catches pandas-isms, non-lazy patterns, Python-in-hot-paths, and parallelism blockers. Use for all Polars code changes. MUST BE USED for Polars projects.
+model: claude-sonnet-4-6
 tools: ["Read", "Grep", "Glob", "Bash"]
 ---
 
