@@ -383,6 +383,23 @@ v1 → v2 geçiş için kullanıcıya: "Mevcut projelerinde `bash sync-to-projec
 
 ---
 
+### T-013 — Post-Release Bütünlük Denetimi ✅ TAMAMLANDI
+**Önem:** P0 (yanlış sayımlar kullanıcıya yanlış bilgi verir)
+**Süre:** 30 dk
+**Commit:** `8830505`
+
+**Yapılan:**
+- `sast-cors/SKILL.md` oluşturuldu (CHANGELOG'da vardı ama dosya eksikti)
+- `sast-scan/SKILL.md`: duplicate `sast-idor` satırı kaldırıldı, `sast-cors` eklendi; 16→15
+- `sast-report/SKILL.md`: `cors-results.md` discovery listesine + coverage tablosuna eklendi
+- `commands/sast.md`: 16→15, CORS listede yok → eklendi
+- `agents/security.md`: 16→15, CORS coverage satırına eklendi
+- `CHANGELOG.md`: `sast-csrf` (var olmayan skill) silindi; 16→15; T2 model "opus-fast" → `claude-sonnet-4-6`
+- `CLAUDE.md`: T2 model etiketi "opus-fast" → "sonnet/claude-sonnet-4-6"
+- `README.tr.md`: `121 toplam` → `125 toplam` (×2), `16 paralel` → `15 paralel` (×2)
+
+---
+
 ## 🗂️ Sıralama ve Bağımlılıklar
 
 ```
