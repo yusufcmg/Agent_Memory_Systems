@@ -367,16 +367,16 @@ Mevcut projede manuel düzenlediğin bir agent/skill iyileşmesini AMS2 template
 
 ---
 
-### T-012 — Versiyon Bump + Changelog + Release
+### T-012 — Versiyon Bump + Changelog + Release ✅ TAMAMLANDI
 **Önem:** P0 (her şeyin sonunda)
 **Süre:** 15 dk
 
 **Yapılacak:**
-- `version` 1.x → 2.0 (varsa package.json benzeri yer)
-- `CHANGELOG.md` oluştur veya güncelle
-- Git tag: `v2.0.0`
-- GitHub release notu
-- README badge güncelle
+- `version` 1.x → 2.0 (varsa package.json benzeri yer) ✅
+- `CHANGELOG.md` oluştur veya güncelle ✅
+- Git tag: `v2.0.0` ✅ (commit: 0e485ad)
+- GitHub release notu ⏭️ (opsiyonel — kullanıcı isterse gh release create v2.0.0)
+- README badge güncelle ⏭️ (opsiyonel)
 
 **Migration notu:**
 v1 → v2 geçiş için kullanıcıya: "Mevcut projelerinde `bash sync-to-project.sh` çalıştır, install.sh DEĞİL."
