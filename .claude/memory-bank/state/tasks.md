@@ -397,6 +397,19 @@ v1 → v2 geçiş için kullanıcıya: "Mevcut projelerinde `bash sync-to-projec
 
 ---
 
+### T-015 — Kalan 16 Ajanın `model:` Alanı Eklendi ✅ TAMAMLANDI
+**Önem:** P0
+**Süre:** 15 dk
+**Commit:** `6678ddb`
+
+**Yapılan:**
+- CLAUDE.md'deki tier tablosunda adı geçmeyen 16 destek ajanının tamamına explicit `model:` alanı eklendi
+- T3 (claude-sonnet-4-6): code-reviewer, cpp-reviewer, database-reviewer, e2e-runner, go-reviewer, harness-optimizer, java-reviewer, kotlin-reviewer, loop-operator, onboarding, polars-reviewer, python-reviewer, rust-reviewer, startup-launch, tdd-guide
+- T4 (claude-haiku-4-5-20251001): docs-lookup
+- Sonuç: **46/46 ajan explicit model alanına sahip** — tier maliyet optimizasyon sistemi tamamen çalışır durumda
+
+---
+
 ### T-013 — Post-Release Bütünlük Denetimi ✅ TAMAMLANDI
 **Önem:** P0 (yanlış sayımlar kullanıcıya yanlış bilgi verir)
 **Süre:** 30 dk
